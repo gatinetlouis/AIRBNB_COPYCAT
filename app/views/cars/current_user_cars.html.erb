@@ -3,7 +3,7 @@
   <div class="row">
     <% @cars.each do |car| %>
       <div class="card col-4 m-4" style="width: 18rem; max-height: 30rem;">
-        <img class="card-img-top" src="..." alt="Card image cap">
+        <%= cl_image_tag car.photo.key, crop: :fill, class: "card-img-top" %>
         <div class="card-body">
           <h5 class="card-title"><%= car.brand %> - <%= car.model %> </h5>
           <p class="card-text"> <%= car.description %> </p>
@@ -12,8 +12,12 @@
           <li class="list-group-item"> address : <%= car.pick_up_address %> </li>
           <li class="list-group-item"> <%= car.price_per_day %> € </li>
         </ul>
-        <p><%= link_to 'Edit here',edit_car_path(car), class: 'text-decoration-none' %> | <%= link_to 'Delete here',car_path(car), method: :delete, data: { confirm: "Are you sure?" }, class: 'text-decoration-none'%></p>
-        <%= link_to 'Rentals', car_rentals_path(car), class: 'text-decoration-none' %>
+        <% if policy(car).edit? && policy(car).destroy? %>
+          <p><%= link_to 'Edit here',edit_car_path(car), class: 'text-decoration-none' %> | <%= link_to 'Delete here',car_path(car), method: :delete, data: { confirm: "Are you sure?" }, class: 'text-decoration-none'%></p>
+        <% end %>
+        <% if policy(car).current_car_rentals? %>
+          <%= link_to 'Rentals', car_rentals_path(car), class: 'text-decoration-none' %>
+        <% end %>
       </div>
     <% end %>
   </div>

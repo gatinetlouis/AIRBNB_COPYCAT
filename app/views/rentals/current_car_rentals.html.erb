@@ -4,13 +4,15 @@
     <% @rentals.each do |rental| %>
       <div class="col-sm-4">
         <div class="card rental-card mt-5" style="height: 60vh;">
-          <img src="https://source.unsplash.com/random" alt="car photo" class="card-img-top">
+          <%= cl_image_tag rental.car.photo.key, crop: :fill, class: "card-img-top" %>
           <div class="card-body">
             <h5 class="card-title"><%= rental.user.email %></h5>
             <p>Pickup Address: <%=  Car.find(rental.car_id).pick_up_address %></p>
             <p>Start Date: <%= rental.start_date %></p>
             <p>End Date: <%= rental.end_date %></p>
-            <p><%= link_to "Cancel", rental_path(rental), method: :delete, data: { confirm: "Are you sure?" }, class: 'text-decoration-none' %></p>
+            <% if policy(rental).destroy? %>
+              <p><%= link_to "Cancel", rental_path(rental), method: :delete, data: { confirm: "Are you sure?" }, class: 'text-decoration-none' %></p>
+            <% end %>
           </div>
         </div>
       </div>
