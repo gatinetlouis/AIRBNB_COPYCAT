@@ -1,1 +1,27 @@
 // Specific CSS for your home-page
+
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap');
+
+.banner {
+  background-image: url(https://cdn.dribbble.com/users/1140574/screenshots/3973547/dribbble.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+
+  h1 {
+    color: white;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 100px;
+  }
+
+  p {
+    color: white;
+    font-size: 50px;
+  }
+}
+
+
+.div-welcome-title {
+  padding-top: 50px;
+
+}

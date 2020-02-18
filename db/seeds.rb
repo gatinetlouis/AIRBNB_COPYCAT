@@ -24,6 +24,11 @@ puts "#{Review.count} users"
 puts "======SEEDING======"
 
 
+User.destroy_all
+Car.destroy_all
+Review.destroy_all
+Rental.destroy_all
+
 
 User.create(
   username: "mandou13",
