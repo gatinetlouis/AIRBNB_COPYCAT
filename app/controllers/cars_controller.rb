@@ -1,20 +1,29 @@
 class CarsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :find_car, only: [:show, :edit, :update, :destroy]
 
   def index
-    @cars = Car.all
+     @cars = policy_scope(Car)
+    if params[:search].nil?
+       @cars
+    else
+      @cars = @cars.select { |car| car.pick_up_address.include?(params[:search])}
+    end
   end
 
   def show
-    @car = Car.find(params[:id])
+    authorize @car
   end
 
   def new
     @car = Car.new
+    authorize @car
   end
 
   def create
-    @car = Car.new(set_car_params)
+
+    @car = Car.new(set_cars_params)
+    authorize @car
     @car.user = current_user
     if @car.save!
       redirect_to car_path(@car)
@@ -24,13 +33,12 @@ class CarsController < ApplicationController
   end
 
   def edit
-    @car = Car.find(params[:id])
-
+    authorize @car
   end
 
   def update
-    @car = Car.find(params[:id])
-    if @car.update(set_car_params)
+    authorize @car
+    if @car.update(set_cars_params)
       redirect_to cars_path
     else
       render :edit
@@ -39,7 +47,7 @@ class CarsController < ApplicationController
   end
 
   def destroy
-    @car = Car.find(params[:id])
+    authorize @car
     @car.destroy
     redirect_to cars_path
   end
@@ -49,9 +57,13 @@ class CarsController < ApplicationController
   end
 
   private
+  
+  def find_car
+    @car = Car.find(params[:id])
+  end
 
-  def set_car_params
-    params.require(:car).permit(:brand, :model, :pick_up_address, :price_per_day, :description)
+  def set_cars_params
+    params.require(:car).permit(:brand, :model, :pick_up_address, :pick_up_city, :price_per_day, :description, :photo)
   end
 
 end

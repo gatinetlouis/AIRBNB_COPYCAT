@@ -11,8 +11,12 @@
         <li class="list-group-item"> <%= @car.price_per_day %> € </li>
       </ul>
       <div class="btns mt-3">
-        <%= link_to 'Edit here',edit_car_path(@car), class: 'btn btn-primary' if @car.user = current_user%>
-        <%= link_to 'Delete here',car_path(@car), method: :delete, class: 'btn btn-primary' if @car.user = current_user%>
+        <% if policy(@car).edit? %>
+        <%= link_to 'Edit here',edit_car_path(@car), class: 'btn btn-primary'%>
+        <% end %>
+        <% if policy(@car).destroy? %>
+        <%= link_to 'Delete here',car_path(@car), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary' %>
+        <% end %>
         <%= link_to 'Rent', new_car_rental_path(@car), class: 'btn btn-primary' %>
       </div>
     </div>
