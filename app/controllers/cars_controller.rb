@@ -54,10 +54,11 @@ class CarsController < ApplicationController
 
   def current_user_cars
     @cars = Car.all.select { |car| car.user_id == current_user.id }
+    authorize @cars
   end
 
   private
-  
+
   def find_car
     @car = Car.find(params[:id])
   end
