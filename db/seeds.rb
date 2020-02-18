@@ -5,6 +5,24 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' end, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require "open-uri"
+puts "#{User.count} users"
+puts "#{Car.count} users"
+puts "#{Rental.count} users"
+puts "#{Review.count} users"
+
+puts "======DELETING======"
+User.destroy_all
+Car.destroy_all
+Rental.destroy_all
+Review.destroy_all
+puts "#{User.count} users"
+puts "#{Car.count} users"
+puts "#{Rental.count} users"
+puts "#{Review.count} users"
+
+puts "======SEEDING======"
+
 
 User.destroy_all
 Car.destroy_all
@@ -42,13 +60,14 @@ User.all.each do |user|
 end
 
 
-Car.create(
-  brand: "Volvo",
-  model: "Volvo 850",
+first_car = Car.new(
+  brand: "Audi",
+  model: "Audi A4",
   color: "Purple",
   price_per_day: 134,
-  description: "Je vous propose une volvo 850 tuning, c'est un modèle unique. Elle a de belles jantes dorées, parfait pour un we",
-  pick_up_address: "34 rue de Strasbourg, 59000 Fallempin, France",
+  description: "Je vous propose une audi A4 tuning, c'est un modèle unique. Elle a de belles jantes noires, parfait pour un we",
+  pick_up_address: "10 Rue Louise de Bettignies, 59133 Phalempin",
+  pick_up_city: "Fallempin",
   fuel_type: "Diesel",
   automatic: true,
   neon: true,
@@ -57,14 +76,19 @@ Car.create(
   user_id: user_id.sample
   )
 
+first_car_photo = URI.open('https://www.tuningblog.eu/fr/wp-content/uploads/2017/10/Audi-A4-Avant-B8-Tuning-Purple-Pink-mattschwarz-Folierung-1.jpg')
+first_car.photo.attach(io: first_car_photo, filename: 'audi.png', content_type: 'image/png')
+first_car.save
 
-Car.create(
+
+second_car = Car.new(
   brand: "Peugeot",
   model: "Peugeot 207 CC",
   color: "Green Apple",
   price_per_day: 155,
   description: "Je vous propose ma belle titine, elle est pimpée à mort, avec  un super système son",
-  pick_up_address: "34 rue du Tuninf, 59080 Hemmes, France",
+  pick_up_address: "670 Rue Robelin, 62730 Marck",
+  pick_up_city: "Marck",
   fuel_type: "Gasoil",
   automatic: true,
   neon: true,
@@ -73,13 +97,19 @@ Car.create(
   user_id: user_id.sample
   )
 
-Car.create(
-  brand: "Opel",
-  model: "Opel Astra 2.0",
-  color: "Yellow",
+second_car_photo = URI.open("https://www.supercars.net/blog/wp-content/uploads/2016/04/2007_Peugeot_207S20003.jpg")
+second_car.photo.attach(io: second_car_photo, filename: 'peugeot.png', content_type: 'image/png')
+second_car.save
+
+
+third_car = Car.new(
+  brand: "GMC",
+  model: "GMC Sierra",
+  color: "Red",
   price_per_day: 220,
-  description: "Magnifique Opel Astra, volant en fourrure,  néon à gogo, vous allez vous régaler ",
-  pick_up_address: "55 bd Saint Etienne, 59070 Roubaix, France",
+  description: "Magnifique GMC Sierra, volant en fourrure,  néon à gogo, vous allez vous régaler ",
+  pick_up_address: "78 Rue Mail de Lannoy 10, 59100 Roubaix",
+  pick_up_city: "Roubaix",
   fuel_type: "Diesel",
   automatic: false,
   neon: true,
@@ -88,13 +118,19 @@ Car.create(
   user_id: user_id.sample
   )
 
-Car.create(
+third_car_photo = URI.open("https://www.tuningblog.eu/fr/wp-content/uploads/2020/02/GMC-Sierra-2500HD-Tuning-Lift-Kit-18.jpg")
+third_car.photo.attach(io: third_car_photo, filename: 'gmc.png', content_type: 'image/png')
+third_car.save
+
+
+fourth_car = Car.new(
   brand: "Mercedes",
-  model: "SL 350",
+  model: "AMG",
   color: "Orange",
   price_per_day: 500,
   description: "Ancien taxi, j'ai retappé ma Merco avec beaucoup d'amour, cuir croco, sono 500db et quelques détails bling bling",
-  pick_up_address: "34 rue de Strasbourg, 59000 Fallempin, France",
+  pick_up_address: "12 Rue Montgrand, 13006 Marseille",
+  pick_up_city: "Marseille",
   fuel_type: "Gasoil",
   automatic: false,
   neon: true,
@@ -102,6 +138,9 @@ Car.create(
   rim_size: 200,
   user_id: user_id.sample
   )
+fourth_car_photo = URI.open("https://www.tuningblog.eu/fr/wp-content/uploads/2017/11/Orange-Beast-Renntech-Mercedes-AMG-GT-R-Tuning-7.jpg")
+fourth_car.photo.attach(io: fourth_car_photo, filename: 'amg.png', content_type: 'image/png')
+fourth_car.save
 
 car_id = []
 Car.all.each do |user|
@@ -174,3 +213,7 @@ Review.create(
   rating: 1
 )
 
+puts "#{User.count} users"
+puts "#{Car.count} users"
+puts "#{Rental.count} users"
+puts "#{Review.count} users"
