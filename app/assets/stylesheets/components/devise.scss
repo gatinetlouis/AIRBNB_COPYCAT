@@ -1,0 +1,44 @@
+.devise-background {
+  height: 100vh;
+  background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://cdn.dribbble.com/users/1140574/screenshots/3973547/dribbble.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+}
+
+.devise-form {
+  border-radius: 5px;
+  padding: 30px;
+  width: 35vw;
+  position: absolute;
+  top: 20vh;
+  left: 55vh;
+  .links {
+    border-top: solid 1px rgba(200, 200, 200, 0.8);
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0 0 0;
+    padding-top: 10px;
+  }
+}
+
+.new_user {
+  margin-bottom: 25px;
+  .form-inputs label {
+    font-weight: bold;
+  }
+  .form-check label {
+    font-weight: normal;
+  }
+
+  .form-actions input {
+    color: white;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+
+

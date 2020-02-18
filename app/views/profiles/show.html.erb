@@ -5,5 +5,6 @@
     <p><%= link_to "All cars", profile_cars_path(current_user), class: 'btn btn-primary' %></p>
   <% end %>
   <p><%= link_to "Add a car", new_car_path, class: 'btn btn-primary' %></p>
+  <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
 </div>
 
