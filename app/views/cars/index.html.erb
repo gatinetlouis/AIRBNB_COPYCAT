@@ -1,22 +1,34 @@
-<div class="container mt-5">
-  <h1>All cars</h1>
-  <%= link_to 'Create a new car', new_car_path, class: 'btn btn-info'  %>
-  <div class="row justify-content-center">
-    <% @cars.each do |car| %>
-      <div class="card col-4 m-4" style="width: 18rem; max-height: 30rem;">
-        <img class="card-img-top" src="..." alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title"><%= car.brand %> - <%= car.model %> </h5>
-          <p class="card-text"> <%= car.description %> </p>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item"> address : <%= car.pick_up_address %> </li>
-          <li class="list-group-item"> <%= car.price_per_day %> € </li>
-        </ul>
-        <%= link_to 'More details',car_path(car), class: 'btn btn-warning' %>
+<div class='d-flex'>
+  <div id="map" style="height: 100vh; width: 600px"></div>
+
+  <div class='index'>
+    <div class="container mt-5">
+      <h1>All cars</h1>
+      <div class="row justify-content-center">
+        <% @cars.each do |car| %>
+          <div class="card car-card w-100 m-4 d-flex flex-row" style="width: 18rem; max-height: 30rem;">
+            <div class= "w-25">
+              <% if car.photo.attached? %>
+                <%= cl_image_tag car.photo.key, height: 300, width: 400, crop: :fill, class: 'card-img-top' %>
+              <% else %>
+                <img class="card-img-top" src="..." alt="No image yet">
+              <% end %>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title"><%= car.brand %> - <%= car.model %> </h5>
+              <p class="card-text"> <%= car.description %> </p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item pick_up_address" > <i class="fas fa-map-pin"></i> <%= car.pick_up_address %> </li>
+              <li class="list-group-item" > <i class="fas fa-map-pin"></i> <%= car.pick_up_city %> </li>
+              <li class="list-group-item">  <i class="fas fa-euro-sign"></i> <%= car.price_per_day %> € /day </li>
+              <div class='text-center'>
+                <%= link_to 'More details',car_path(car), class: 'btn btn-success' %>
+              </div>
+            </ul>
+          </div>
+        <% end %>
       </div>
-    <% end %>
+    </div>
   </div>
 </div>
-
-
