@@ -1,25 +1,24 @@
 <div class="container mt-5">
-    <h1>Detailed for a specific car</h1>
+  <h1>Detailed for a specific car</h1>
 
-<div class="row justify-content-center">
-  <div class="col-4">
-  <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="..." alt="Card image cap">
-    <div class="card-body">
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <img class="card-img-top" src="..." alt="Card image cap">
       <h5 class="card-title"><%= @car.brand %> - <%= @car.model %> </h5>
       <p class="card-text"> <%= @car.description %> </p>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"> address : <%= @car.pick_up_address %> </li>
+        <li class="list-group-item"> <%= @car.price_per_day %> € </li>
+      </ul>
+      <div class="btns mt-3">
+        <% if policy(@car).edit? %>
+        <%= link_to 'Edit here',edit_car_path(@car), class: 'btn btn-primary'%>
+        <% end %>
+        <% if policy(@car).destroy? %>
+        <%= link_to 'Delete here',car_path(@car), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary' %>
+        <% end %>
+        <%= link_to 'Rent', new_car_rental_path(@car), class: 'btn btn-primary' %>
+      </div>
     </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item"> address : <%= @car.pick_up_address %> </li>
-      <li class="list-group-item"> <%= @car.price_per_day %> € </li>
-    </ul>
-    <% if policy(@car).edit? %>
-    <%= link_to 'Edit here',edit_car_path(@car), class: 'btn btn-primary'%>
-    <% end %>
-    <% if policy(@car).destroy? %>
-    <%= link_to 'Delete here',car_path(@car), method: :delete, class: 'btn btn-primary' %>
-    <% end %>
   </div>
-  </div>
-</div>
 </div>

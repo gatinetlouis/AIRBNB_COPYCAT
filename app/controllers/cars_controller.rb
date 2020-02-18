@@ -21,6 +21,7 @@ class CarsController < ApplicationController
   end
 
   def create
+
     @car = Car.new(set_cars_params)
     authorize @car
     @car.user = current_user
@@ -51,8 +52,12 @@ class CarsController < ApplicationController
     redirect_to cars_path
   end
 
-  private
+  def current_user_cars
+    @cars = Car.all.select { |car| car.user_id == current_user.id }
+  end
 
+  private
+  
   def find_car
     @car = Car.find(params[:id])
   end
