@@ -9,25 +9,25 @@
 
 User.create(
   username: "mandou13",
-  password: "xxxxxxxx717oJNFJFJ",
+  password: "azerty",
   phone_number: "073947594039",
   email: "amandine.legal@me.com")
 
 User.create(
   username: "maxtuninglover",
-  password: "xxxxxddofhFJ",
+  password: "azerty",
   phone_number: "073947594039",
   email: "maxence.mdr@me.com")
 
 User.create(
   username: "Gatuning",
-  password: "xxijfhfoiFJFJ",
+  password: "azerty",
   phone_number: "073947164039",
   email: "gattuning@me.com")
 
 User.create(
   username: "dortuning",
-  password: "xxxxddxxx717oJNFJFJ",
+  password: "azerty",
   phone_number: "0739893967",
   email: "dortuning@me.com")
 
