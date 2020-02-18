@@ -4,5 +4,5 @@ class Car < ApplicationRecord
   has_many :reviews, through: :rentals
 
   validates :brand, :model, :pick_up_address, :price_per_day, presence: true
-  validates :description, presence: true, length: { minimum: 70, maximum: 300 }
+  validates :description, presence: true, length: { minimum: 10, maximum: 300 }
 end
