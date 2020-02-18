@@ -2,7 +2,12 @@ class CarsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @cars = Car.all
+    if params[:search].nil?
+      @cars = Car.all
+    else
+      @cars = Car.all
+      @cars = @cars.select { |car| car.pick_up_address.include?(params[:search])}
+    end
   end
 
   def show
