@@ -1,31 +1,31 @@
-.navbar  {
-  color: red;
-  display:flex;
-  width: 100%;
-  font-family: 'Roboto', sans-serif;
-    box-shadow: 0 2px 2px -2px rgba(0,0,0,.1);
 
+
+.nav-item:hover{
+ color:       #27496D;
+  box-shadow: 0px 5px 0px;
 }
 
-.logo {
-  width: 130px;
- background-color: transparent;
- ;
+a:hover{
+  text-decoration: none;
+  color:           #27496D;
 }
 
-.fas {
-  color: #27496D;
+.navbar a  {
+  color:      black;
+  font-size:  12px;
+  font-style: arial;
 }
 
-a.nav-link:hover{
- color: #27496D;
-box-shadow: 0px 4px 0px
+.logo{
+  margin: 0;
+  padding:0;
 }
 
-.btn {
-color: white;
-background-color:#27496D;
-border-style: none;
-border-radius: 3px;
+.container.content{
+  display:         flex;
+  justify-content: flex-end;
 }
 
+.navbar{
+  height: 70px;
+}
