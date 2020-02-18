@@ -2,19 +2,21 @@ class RentalsController < ApplicationController
   before_action :find_by_id, only: [:show, :destroy]
 
   def index
-    @rentals = Rental.all
-    # profil of renters and offers
+    @rentals = policy_scope(Rental)
   end
 
   def new
     @rental = Rental.new
     @car = Car.find(params[:car_id])
+    authorize @rental
+    authorize @car
   end
 
   def create
     @rental = Rental.new(set_rental_params)
     @rental.car = Car.find(params[:car_id])
     @rental.user = current_user
+    authorize @rental
     if @rental.save
       redirect_to car_path(@rental.car)
     else
@@ -24,6 +26,7 @@ class RentalsController < ApplicationController
 
   def destroy
     # profil of renters and offers
+    authorize @rental
     @rental.destroy
     redirect_to cars_path
   end
@@ -31,6 +34,15 @@ class RentalsController < ApplicationController
   def current_car_rentals
     @car = Car.find(params[:car_id])
     @rentals = @car.rentals
+    # @rentals = policy_scope(Rental).where(car: @car)
+    # authorize @rentals
+    authorize @car
+
+    # @rentals.each do |rental|
+    #   authorize rental
+    # end
+    # @rentals = policy_scope(Rental)
+
   end
 
   private
