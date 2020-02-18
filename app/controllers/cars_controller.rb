@@ -3,7 +3,12 @@ class CarsController < ApplicationController
   before_action :find_car, only: [:show, :edit, :update, :destroy]
 
   def index
-    @cars = policy_scope(Car)
+     @cars = policy_scope(Car)
+    if params[:search].nil?
+       @cars
+    else
+      @cars = @cars.select { |car| car.pick_up_address.include?(params[:search])}
+    end
   end
 
   def show

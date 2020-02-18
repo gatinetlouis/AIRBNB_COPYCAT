@@ -1,2 +1,37 @@
 // Import page-specific CSS files here.
 @import "home";
+
+
+// .index {
+//   background-color: #de1848;
+//   color: white;
+//   h1 {
+//     color: white;
+//   }
+
+// }
+
+
+// .card {
+//   background-color: black;
+// }
+
+#map {
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+.car-card {
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+
+.card-title {
+  font-family: 'Permanent Marker', cursive;
+}
+
+
+h1 {
+  font-family: 'Permanent Marker', cursive;
+}
