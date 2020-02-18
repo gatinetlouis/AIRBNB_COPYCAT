@@ -4,9 +4,6 @@
   <div class='index'>
     <div class="container mt-5">
       <h1>All cars</h1>
-  <!--     <%= link_to 'Create a new car', new_car_path, class: 'btn btn-info'  %>
-   -->
-
       <div class="row justify-content-center">
         <% @cars.each do |car| %>
           <div class="card car-card w-100 m-4 d-flex flex-row" style="width: 18rem; max-height: 30rem;">
@@ -20,7 +17,6 @@
             <div class="card-body">
               <h5 class="card-title"><%= car.brand %> - <%= car.model %> </h5>
               <p class="card-text"> <%= car.description %> </p>
-
             </div>
             <ul class="list-group list-group-flush">
               <li class="list-group-item pick_up_address" > <i class="fas fa-map-pin"></i> <%= car.pick_up_address %> </li>
@@ -30,7 +26,6 @@
                 <%= link_to 'More details',car_path(car), class: 'btn btn-success' %>
               </div>
             </ul>
-
           </div>
         <% end %>
       </div>
