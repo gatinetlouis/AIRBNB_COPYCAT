@@ -14,7 +14,7 @@ class CarsController < ApplicationController
   end
 
   def create
-    @car = Car.new(set_cars_params)
+    @car = Car.new(set_car_params)
     @car.user = current_user
     if @car.save!
       redirect_to car_path(@car)
@@ -30,7 +30,7 @@ class CarsController < ApplicationController
 
   def update
     @car = Car.find(params[:id])
-    if @car.update(set_cars_params)
+    if @car.update(set_car_params)
       redirect_to cars_path
     else
       render :edit
@@ -44,9 +44,13 @@ class CarsController < ApplicationController
     redirect_to cars_path
   end
 
+  def current_user_cars
+    @cars = Car.all.select { |car| car.user_id == current_user.id }
+  end
+
   private
 
-  def set_cars_params
+  def set_car_params
     params.require(:car).permit(:brand, :model, :pick_up_address, :price_per_day, :description)
   end
 
