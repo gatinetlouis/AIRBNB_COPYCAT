@@ -1,0 +1,9 @@
+<div class="container my-5">
+  <%= link_to "Change password", edit_user_registration_path, class: 'btn btn-primary mb-3' %>
+  <p><%= link_to "All rentals (you rent others' car)", rentals_path, class: 'btn btn-primary' %></p>
+  <% unless current_user.cars.blank? %>
+    <p><%= link_to "All cars", profile_cars_path(current_user), class: 'btn btn-primary' %></p>
+  <% end %>
+  <p><%= link_to "Add a car", new_car_path, class: 'btn btn-primary' %></p>
+</div>
+

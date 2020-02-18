@@ -1,0 +1,21 @@
+<div class="container my-5">
+  <h1>All your cars</h1>
+  <div class="row">
+    <% @cars.each do |car| %>
+      <div class="card col-4 m-4" style="width: 18rem; max-height: 30rem;">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title"><%= car.brand %> - <%= car.model %> </h5>
+          <p class="card-text"> <%= car.description %> </p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"> address : <%= car.pick_up_address %> </li>
+          <li class="list-group-item"> <%= car.price_per_day %> € </li>
+        </ul>
+        <p><%= link_to 'Edit here',edit_car_path(car), class: 'text-decoration-none' %> | <%= link_to 'Delete here',car_path(car), method: :delete, data: { confirm: "Are you sure?" }, class: 'text-decoration-none'%></p>
+        <%= link_to 'Rentals', car_rentals_path(car), class: 'text-decoration-none' %>
+      </div>
+    <% end %>
+  </div>
+  <%= link_to "Back to profile", profile_path(current_user), class: "text-decoration-none" %>
+</div>
