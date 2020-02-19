@@ -1,11 +1,12 @@
 <div class='background-navbar'>
-  <div class='navbar d-flex align-items-center'>
-      <!-- <img src='../../assets/images/Logo_Jackynb.png' alt='logo'> -->
-      <%= image_tag 'logo-jackynb.png', alt: 'alttext', class: 'logo center' %>
-    <div class='content d-flex pr-20'>
-      <div class='nav-item text-center mr-5 mt-0 mb-0'>
-        <%= link_to root_path do  %>
-          <i class='fas fa-home fa-lg'></i>
+
+  <div class="navbar d-flex align-items-center">
+      <!-- <img src="../../assets/images/Logo_Jackynb.png" alt='logo'> -->
+      <%= image_tag "logo-jackynb.png", alt: "alttext", class: 'logo center' %>
+    <div class="content d-flex pr-20">
+      <div class="nav-item text-center mr-5 mt-0 mb-0">
+        <%= link_to cars_path do  %>
+          <i class="fas fa-home fa-lg"></i>
           <p class='mt-0'> Home </p>
         <% end %>
       </div>
@@ -15,11 +16,10 @@
           <p class='mt-0'> Add a car </p>
         <% end %>
       </div>
-      <!-- Maxence va resoudre le probleme logout -->
-      <div class='nav-item text-center m-0 mr-5'>
+      <div class="nav-item text-center m-0 mr-5">
         <% if current_user.nil? %>
           <%= link_to new_user_session_path do %>
-            <i class='fas fa-car fa-lg'></i>
+            <i class="fas fa-car fa-lg"></i>
             <p class='mt-0'> My cars </p>
           <% end %>
         <% elsif policy(current_user).show? %>
@@ -34,11 +34,12 @@
           <% if current_user.nil? %>
             <%= link_to new_user_session_path do %>
               <i class='fas fa-user fa-lg'></i>
+
               <p class='mt-0'> Account </p>
             <% end %>
           <% elsif policy(current_user).show? %>
             <%= link_to profile_path(current_user) do %>
-              <i class='fas fa-user fa-lg'></i>
+              <i class="fas fa-user fa-lg"></i>
               <p class='mt-0'> Account </p>
             <% end %>
           <% end %>
