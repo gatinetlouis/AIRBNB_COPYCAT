@@ -1,42 +1,58 @@
 <div class='d-flex'>
-  <div id="map" style="height: 100vh; width: 600px"></div>
+  <div class = 'd-flex flex-column align-items-center sticky-map-search'>
+    <div class= 'search-index'>
+      <form action="/cars" method="get" class='form-inline md-form mr-auto mb-4'>
+        <div class="form-group d-flex w-">
+          <input type="text" name='search' placeholder="City" class='form-control mr-sm-2 w-100 shadow'>
+        </div>
+        <input type="date" class='form-control mr-sm-2 shadow' name="date">
+        <button type="submit" class= 'btn btn-success pt-50 pl-20'><i class="fa fa-search"></i></button>
+      </form>
+    </div>
+    <div id="map" class="mt-4" ></div>
+  </div>
 
   <div class='index'>
     <div class="container">
-      <div class="row justify-content-center">
-        <h1>All cars</h1>
-        <% @cars.each do |car| %>
-          <div class="card car-card w-100 m-4 d-flex flex-row" style="width: 18rem; max-height: 30rem;">
-            <div class= "photo w-60">
-              <% if car.photo.attached? %>
-                <%= cl_image_tag car.photo.key, height: 300, width: 400, crop: :fill, class: 'card-img-top photo' %>
-              <% else %>
-                <img class="card-img-top" src="..." alt="No image yet">
-              <% end %>
-            </div>
-            <div class="card-body">
-              <div class="card-title d-flex justify-content-between">
-                <h5 class="card-title"><%= car.brand %> - <%= car.model %> </h5>
-                <p class=''><i class="fas fa-map-pin"> </i> <%= car.pick_up_city %>  </p>
+      <div class="row">
+        <div class='title-div'>
+          <h2 class='title-all-cars'>All cars</h2>
+        </div>
+          <% @cars.each do |car| %>
+            <div class="card car-card w-100 m-4 d-flex flex-row" style="width: 18rem; max-height: 30rem;">
+              <div class= "photo w-60">
+                <% if car.photo.attached? %>
+                  <%= cl_image_tag car.photo.key, height: 300, width: 400, crop: :fill, class: 'card-img-top photo' %>
+                <% else %>
+                  <img class="card-img-top" src="..." alt="No image yet">
+                <% end %>
+              </div>
+              <div class="card-body card-body-index d-flex justify-content-between">
+                <div class="padding-card d-flex justify-content-between pr-10 pl-10">
+                  <h5 class="card-title card-title-index"><%= car.brand %> - <%= car.model %> </h5>
+                  <p class=''><i class="fas fa-map-pin"> </i><%= car.pick_up_city %>  </p>
+                </div>
+
+                <p class="card-text  padding-card"> <%= car.description %> </p>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item pick_up_address" ><i class="fas fa-map-pin"> </i><%= car.pick_up_address %></li>
+                </ul>
+                  <div class='d-flex padding-card flex-row-reverse pr-20 pb-2'>
+                    <div class='price btn-ghost align-content-right'><i class="fas fa-euro-sign"></i> <strong> <%= car.price_per_day %> /day </strong></div>
+                  </div>
+                  <!-- <ul class="list-group list-group-flush">
+                    <li class="list-group-item" > <i class="fas fa-map-pin"></i> <%= car.pick_up_city %> </li>
+                    <li class="list-group-item">  <i class="fas fa-euro-sign"></i> <%= car.price_per_day %> /day </li> -->
+                    <div class='d-flex'>
+                      <div class='text-center w-100 align-item-end button-more-info'>
+                        <%= link_to 'More info',car_path(car), class: 'btn btn-success more-details w-100' %>
+                      </div>
+                    </div>
+                  <!-- </ul> -->
+                </div>
               </div>
 
-              <p class="card-text"> <%= car.description %> </p>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item pick_up_address" ><i class="fas fa-map-pin"> </i><%= car.pick_up_address %></li>
-              </ul>
-            </div>
-            <div class='d-flex'>
-              <div class='price btn-ghost'><i class="fas fa-euro-sign"></i> <strong> <%= car.price_per_day %> /day </strong></div>
-            </div>
-            <!-- <ul class="list-group list-group-flush">
-              <li class="list-group-item" > <i class="fas fa-map-pin"></i> <%= car.pick_up_city %> </li>
-              <li class="list-group-item">  <i class="fas fa-euro-sign"></i> <%= car.price_per_day %> /day </li> -->
-              <div class='text-center'>
-                <%= link_to 'More info',car_path(car), class: 'btn btn-success more-details' %>
-              </div>
-            <!-- </ul> -->
-          </div>
-        <% end %>
+          <% end %>
       </div>
     </div>
   </div>

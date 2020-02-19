@@ -8,11 +8,11 @@
         <form action="/cars" method="get" class='form-inline md-form mr-auto mb-4'>
           <div class="form-group d-flex w-50">
             <input type="text" name='search' placeholder="Where do you feel like going?" class='form-control mr-sm-2 w-100 shadow'>
-            <input type="date">
           </div>
+          <input type="date" class='form-control mr-sm-2 shadow' name="date">
+          <input type="date" class='form-control mr-sm-2 shadow' name="date">
           <button type="submit" class= 'btn btn-success pt-50 pl-20'><i class="fa fa-search"></i></button>
         </form>
-      <%= link_to 'View all cars', cars_path, class: 'btn btn-success pt-50 pl-20' %>
 <!--       <%= link_to 'Add a car', new_car_path, class: 'btn btn-success pt-50' %>
  -->    </div>
   </div>
