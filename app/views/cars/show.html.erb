@@ -53,9 +53,10 @@
     <div class="col-5">
       <div class="card-body-large">
         <%= simple_form_for [@car, @rental] do |f| %>
-          <%= f.input :start_date %>
-          <%= f.input :end_date %>
+          <%= f.input :start_date, as: :date, html5: true %>
+          <%= f.input :end_date, as: :date, html5: true %>
           <%= f.submit %>
+          <%= "test" %>
         <% end %>
       </div>
     </div>
