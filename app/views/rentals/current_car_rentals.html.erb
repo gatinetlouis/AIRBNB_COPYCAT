@@ -10,9 +10,9 @@
             <p>Pickup Address: <%=  Car.find(rental.car_id).pick_up_address %></p>
             <p>Start Date: <%= rental.start_date %></p>
             <p>End Date: <%= rental.end_date %></p>
-            <% if policy(rental).destroy? %>
               <p><%= link_to "Cancel", rental_path(rental), method: :delete, data: { confirm: "Are you sure?" }, class: 'text-decoration-none' %></p>
             <% end %>
+            <% if policy(rental).destroy? %>
           </div>
         </div>
       </div>
