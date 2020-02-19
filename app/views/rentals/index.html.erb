@@ -3,10 +3,11 @@
   <div class="row">
     <% current_user.rentals.each do |rental| %>
       <div class="col-sm-4">
-        <div class="card rental-card mt-5" style="height: 60vh;">
-          <img src="https://source.unsplash.com/random" alt="car photo" class="card-img-top">
+        <div class="card rental-card mt-5" style="height: 63vh;">
+          <%= cl_image_tag rental.car.photo.key, crop: :fill, class: "card-img-top" %>
           <div class="card-body">
             <h5 class="card-title"><%= Car.find(rental.car_id).model %></h5>
+            <h6>€ <%= ((rental.end_date - rental.start_date) * Car.find(rental.car_id).price_per_day / (60*60*24)).round %></h6>
             <p>Pickup Address: <%=  Car.find(rental.car_id).pick_up_address %></p>
             <p>Start Date: <%= rental.start_date %></p>
             <p>End Date: <%= rental.end_date %></p>

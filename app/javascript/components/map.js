@@ -10,7 +10,7 @@ const fetchMap = (event) => {
   if (mapElement) {
     const map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v9',
+      style: 'mapbox://styles/mandou13/ck6t26kia0wie1ip19tbw6dlr',
       center: [2.3522,48.8566],
       zoom: 5
     });
