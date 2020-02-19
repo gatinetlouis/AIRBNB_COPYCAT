@@ -12,6 +12,9 @@ class CarsController < ApplicationController
   end
 
   def show
+    @rental = Rental.new
+    @rental.car = @car
+    @rental.user = current_user
     authorize @car
   end
 
