@@ -2,16 +2,15 @@
 
 @import url('https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap');
 
-.banner {
-  background-image: url(https://cdn.dribbble.com/users/1140574/screenshots/3973547/dribbble.jpg);
+.background-image {
   background-size: cover;
   background-position: center;
-  height: 100vh;
+  height: calc(100vh - 65px);
 
   h1 {
     color: white;
     font-family: 'Permanent Marker', cursive;
-    font-size: 100px;
+    font-size: 90px;
   }
 
   p {
@@ -24,4 +23,8 @@
 .div-welcome-title {
   padding-top: 50px;
 
+}
+
+.shadow {
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }

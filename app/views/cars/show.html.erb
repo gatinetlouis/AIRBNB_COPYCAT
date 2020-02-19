@@ -1,9 +1,12 @@
 <div class="container mt-5">
   <h1>Detailed for a specific car</h1>
-
   <div class="row justify-content-center">
     <div class="col-4">
-      <%= cl_image_tag @car.photo.key, crop: :fill, class: "card-img-top" %>
+      <% if @car.photo.attached? %>
+          <%= cl_image_tag @car.photo.key, height: 300, width: 400, crop: :fill, class: 'card-img-topp-view photo' %>
+        <% else %>
+          <img class="card-img-top-view" src="..." alt="No image yet">
+        <% end %>
       <h5 class="card-title"><%= @car.brand %> - <%= @car.model %> </h5>
       <p class="card-text"> <%= @car.description %> </p>
       <ul class="list-group list-group-flush">
