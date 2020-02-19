@@ -1,13 +1,13 @@
-
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
 .nav-item:hover{
- color:       #27496D;
+  color:       #e8035f;
   box-shadow: 0px 5px 0px;
 }
 
 a:hover{
   text-decoration: none;
-  color:           #27496D;
+  color:       #e8035f;
 }
 
 .navbar a  {
@@ -15,19 +15,29 @@ a:hover{
   font-size:  23px;
 }
 
-.container.content{
-  display:         flex;
-  justify-content: flex-end;
+.content {
+  padding-right: 20px;
 }
 
-.navbar{
+.navbar {
   height: 65px;
+  margin: 7px 0px;
 }
 
 .nav-item p {
   margin-top: 8px;
   margin-bottom: 0px;
-  font-size: 20px;
-  font-family: Helvetica;
+  font-size: 17px;
+  font-family: 'Montserrat', sans-serif;
   font-weight: lighter;
 }
+
+.background-navbar {
+  position: sticky;
+  top: 0;
+}
+
+// .background-banner {
+//   background-color: transparent;
+//   padding: 5px 0px;
+// }
