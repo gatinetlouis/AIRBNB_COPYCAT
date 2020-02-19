@@ -7,5 +7,6 @@
     <% end %>
     <p><%= link_to "Add a car", new_car_path, class: 'btn btn-primary' %></p>
   <% end %>
+  <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
 </div>
 
