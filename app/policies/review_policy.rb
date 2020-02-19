@@ -1,4 +1,4 @@
-class reviewPolicy < ApplicationPolicy
+class ReviewPolicy < ApplicationPolicy
 
   class Scope < Scope
     def resolve
@@ -9,7 +9,7 @@ class reviewPolicy < ApplicationPolicy
   end
 
   def new?
-    true
+    create?
   end
 
   def create?
