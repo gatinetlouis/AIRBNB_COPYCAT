@@ -28,7 +28,7 @@ class CarsController < ApplicationController
     @car = Car.new(set_cars_params)
     authorize @car
     @car.user = current_user
-    if @car.save!
+    if @car.save
       redirect_to car_path(@car)
     else
       render :new
