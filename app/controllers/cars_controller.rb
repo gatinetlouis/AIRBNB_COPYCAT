@@ -7,7 +7,7 @@ class CarsController < ApplicationController
     if params[:search].nil?
        @cars
     else
-      @cars = @cars.select { |car| car.pick_up_address.downcase.include?(params[:search].downcase)}
+      @cars = @cars.select { |car| car.pick_up_city.downcase.include?(params[:search].downcase)}
     end
   end
 
