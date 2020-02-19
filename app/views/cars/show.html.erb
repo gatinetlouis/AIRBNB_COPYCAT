@@ -1,33 +1,27 @@
-<div class="banner background-color-show">
-  <div class="container">
-    <h1><%= @car.brand %> - <%= @car.model %> </h1>
-    <div class='p-20'>
-      <div class= "car-image">
-        <% if @car.photo.attached? %>
+<div class="container mt-5">
+  <h1>Detailed for a specific car</h1>
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <% if @car.photo.attached? %>
           <%= cl_image_tag @car.photo.key, height: 300, width: 400, crop: :fill, class: 'card-img-topp-view photo' %>
         <% else %>
           <img class="card-img-top-view" src="..." alt="No image yet">
         <% end %>
-      </div>
-    </div>
-<div class="row justify-content-center">
-  <div class="col-4">
-  <div class="card" style="width: 18rem;">
-    <div class="">
       <h5 class="card-title"><%= @car.brand %> - <%= @car.model %> </h5>
       <p class="card-text"> <%= @car.description %> </p>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"> address : <%= @car.pick_up_address %> </li>
+        <li class="list-group-item"> <%= @car.price_per_day %> € </li>
+      </ul>
+      <div class="btns mt-3">
+        <% if policy(@car).edit? %>
+        <%= link_to 'Edit here',edit_car_path(@car), class: 'btn btn-primary'%>
+        <% end %>
+        <% if policy(@car).destroy? %>
+        <%= link_to 'Delete here',car_path(@car), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary' %>
+        <% end %>
+        <%= link_to 'Rent', new_car_rental_path(@car), class: 'btn btn-primary' %>
+      </div>
     </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item"> address : <%= @car.pick_up_address %> </li>
-      <li class="list-group-item"> <%= @car.price_per_day %> € </li>
-    </ul>
-    <% if policy(@car).edit? %>
-    <%= link_to 'Edit here',edit_car_path(@car), class: 'btn btn-primary'%>
-    <% end %>
-    <% if policy(@car).destroy? %>
-    <%= link_to 'Delete here',car_path(@car), method: :delete, class: 'btn btn-primary' %>
-    <% end %>
   </div>
-  </div>
-</div>
 </div>
