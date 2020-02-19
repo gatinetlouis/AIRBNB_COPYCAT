@@ -54,6 +54,12 @@ User.create(
   phone_number: "0739893967",
   email: "dortuning@me.com")
 
+User.create(
+  username: "Paopao",
+  password: "azerty",
+  phone_number: "0642462227",
+  email: "pauline@me.com")
+
 user_id = []
 User.all.each do |user|
   user_id << user.id

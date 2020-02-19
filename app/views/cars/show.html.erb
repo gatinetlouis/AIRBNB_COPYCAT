@@ -3,7 +3,7 @@
 
   <div class="row justify-content-center">
     <div class="col-4">
-      <img class="card-img-top" src="..." alt="Card image cap">
+      <%= cl_image_tag @car.photo.key, crop: :fill, class: "card-img-top" %>
       <h5 class="card-title"><%= @car.brand %> - <%= @car.model %> </h5>
       <p class="card-text"> <%= @car.description %> </p>
       <ul class="list-group list-group-flush">
