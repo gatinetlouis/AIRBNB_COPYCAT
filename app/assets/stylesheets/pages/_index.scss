@@ -2,36 +2,74 @@
 @import "home";
 
 
-// .index {
-//   background-color: #de1848;
-//   color: white;
-//   h1 {
-//     color: white;
-//   }
-
-// }
-
-
-// .card {
-//   background-color: black;
-// }
-
 #map {
   height: 100vh;
   position: sticky;
-  top: 0;
+  top: 65px;
+}
+
+.card-body {
+  width: 10px;
 }
 
 .car-card {
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2)
 }
 
+.list-group {
+  padding-right: 20px;
+}
 
 .card-title {
   font-family: 'Permanent Marker', cursive;
+  padding-bottom: 10px;
 }
 
 
 h1 {
   font-family: 'Permanent Marker', cursive;
+  padding-top: 0px;
+}
+
+.photo {
+  height: 100%;
+  width: 400px;
+  object-fit: cover;
+}
+
+.more-details {
+  position: absolute;
+  right: -1px;
+  bottom: 0px;
+  width: 495px;
+  font-family: 'Permanent Marker', cursive;
+}
+
+
+.price {
+  position: absolute;
+  right: 29px;
+  bottom: 60px;
+  font-size: 20px;
+}
+
+.btn-ghost {
+  color: #4A4A4A;
+  border: 1px solid #4A4A4A;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+
+.city {
+  position: absolute;
+  right: 61px;
+  bottom: 239px;
+}
+
+.cars-list {
+  width: 100%;
 }
