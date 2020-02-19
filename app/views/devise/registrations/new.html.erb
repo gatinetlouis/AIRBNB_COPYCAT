@@ -1,32 +1,34 @@
-<div class="devise-backkground">
-  <div class="devise-form">
-    <div class="container">
-      <h2>Sign up</h2>
+<div class="devise-background">
+  <div class="devise-form bg-white">
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= f.error_notification %>
 
-      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= f.error_notification %>
+      <div class="form-inputs">
+        <%= f.input :email,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "email" },
+                    placeholder: 'Enter Email' %>
+        <%= f.input :password,
+                    required: true,
+                    hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                    input_html: { autocomplete: "new-password" },
+                    placeholder: 'Enter Password'  %>
+        <%= f.input :password_confirmation,
+                    required: true,
+                    input_html: { autocomplete: "new-password" },
+                    placeholder: 'Confirm Password'  %>
+        <%= f.input :username,
+        placeholder: 'Enter Username'  %>
+        <%= f.input :phone_number,
+        placeholder: 'Enter Phone Number'  %>
+      </div>
 
-        <div class="form-inputs">
-          <%= f.input :email,
-                      required: true,
-                      autofocus: true,
-                      input_html: { autocomplete: "email" }%>
-          <%= f.input :password,
-                      required: true,
-                      hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                      input_html: { autocomplete: "new-password" } %>
-          <%= f.input :password_confirmation,
-                      required: true,
-                      input_html: { autocomplete: "new-password" } %>
-          <%= f.input :username %>
-          <%= f.input :phone_number %>
-        </div>
-
-        <div class="form-actions">
-          <%= f.button :submit, "Sign up" %>
-        </div>
-      <% end %>
-
+      <div class="form-actions">
+        <%= f.button :submit, "Sign up", class: 'btn-success btn-block' %>
+      </div>
+    <% end %>
+    <div class="links">
       <%= render "devise/shared/links" %>
     </div>
   </div>
