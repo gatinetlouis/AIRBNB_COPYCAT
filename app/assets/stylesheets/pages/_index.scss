@@ -3,11 +3,11 @@
 
 
 #map {
-  height: 100vh;
-  position: sticky;
-  top: 65px;
+  height: 82%;
+  width: 600px;
 }
 
+<<<<<<< HEAD
 // .card-body {
 //   width: 10px;
 // }
@@ -24,6 +24,35 @@
 //   font-family: 'Permanent Marker', cursive;
 //   padding-bottom: 10px;
 // }
+=======
+.card-body-index {
+  width: 10px;
+  flex-direction: column;
+  padding-bottom: 0px;
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+.padding-card {
+  padding: 0px 20px;
+
+}
+
+.car-card {
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-bottom: 0px;
+
+}
+
+.list-group {
+  padding-right: 20px;
+}
+
+.card-title-index {
+  font-family: 'Permanent Marker', cursive;
+  padding-bottom: 10px;
+}
+>>>>>>> f4ddff4fcdb3feb0ce99815bf5e37a428b7708de
 
 
 h1 {
@@ -38,18 +67,12 @@ h1 {
 }
 
 .more-details {
-  position: absolute;
-  right: -1px;
-  bottom: 0px;
-  width: 495px;
+
   font-family: 'Permanent Marker', cursive;
 }
 
 
 .price {
-  position: absolute;
-  right: 29px;
-  bottom: 60px;
   font-size: 20px;
 }
 
@@ -65,11 +88,42 @@ h1 {
 
 
 .city {
-  position: absolute;
   right: 61px;
   bottom: 239px;
 }
 
 .cars-list {
+  width: 100%;
+}
+
+.pick_up_address {
+  border: none;
+}
+
+.title-all-cars {
+  margin-left: 25px;
+  font-family: 'Permanent Marker', cursive;
+  margin-bottom: 0px;
+}
+
+.search-index {
+  height: 5% ;
+  position: sticky;
+}
+
+
+.sticky-map-search {
+  height: 100vh;
+  position: sticky;
+  top: 72px;
+}
+
+
+.title-div {
+  height: 5%;
+}
+
+.all-cards {
+  height: 82%;
   width: 100%;
 }
