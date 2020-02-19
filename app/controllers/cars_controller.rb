@@ -53,8 +53,10 @@ class CarsController < ApplicationController
   end
 
   def current_user_cars
-    @cars = Car.all.select { |car| car.user_id == current_user.id }
-    authorize @cars
+    @cars = policy_scope(Car).select { |car| car.user_id == current_user.id }
+
+    # @cars = Car.select { |car| car.user_id == current_user.id }
+    # @cars.each {|car| authorize car }
   end
 
   private
