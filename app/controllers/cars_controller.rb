@@ -7,7 +7,7 @@ class CarsController < ApplicationController
     if params[:search].nil?
        @cars
     else
-      @cars = @cars.select { |car| car.pick_up_address.include?(params[:search])}
+      @cars = @cars.select { |car| car.pick_up_address.downcase.include?(params[:search].downcase)}
     end
   end
 
@@ -56,8 +56,10 @@ class CarsController < ApplicationController
   end
 
   def current_user_cars
-    @cars = Car.all.select { |car| car.user_id == current_user.id }
-    authorize @cars
+    @cars = policy_scope(Car).select { |car| car.user_id == current_user.id }
+
+    # @cars = Car.select { |car| car.user_id == current_user.id }
+    # @cars.each {|car| authorize car }
   end
 
   private
