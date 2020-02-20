@@ -1,19 +1,17 @@
-<div class="banner background-image" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://cdn.dribbble.com/users/1140574/screenshots/3973547/dribbble.jpg);">
-  <div class="container">
-    <div class='div-welcome-title'>
-      <h1>Welcome<br>to<br>Jacky'n'b</h1>
-    </div>
+<div class="background-image d-flex align-items-center"
+     style="background-image: linear-gradient(rgba(0,0,0,0.4),
+                              rgba(0,0,0,0.4)),
+                              url(https://cdn.dribbble.com/users/1140574/screenshots/3973547/dribbble.jpg);">
+  <div class="ml-5">
+    <h1> Welcome<br>to<br>Jacky'n'b</h1>
     <p> Find the most awesome cars in <strong><span id="home-typed-text"></span></strong></p>
-    <div class=''>
-        <form action="/cars" method="get" class='form-inline md-form mr-auto mb-4'>
-          <div class="form-group d-flex w-50">
-            <input type="text" name='search' placeholder="Where do you feel like going?" class='form-control mr-sm-2 w-100 shadow'>
-          </div>
-          <input type="date" class='form-control mr-sm-2 shadow' name="start_date">
-          <input type="date" class='form-control mr-sm-2 shadow' name="end_date">
-          <button type="submit" class= 'btn btn-success pt-50 pl-20'><i class="fa fa-search"></i></button>
-        </form>
-<!--       <%= link_to 'Add a car', new_car_path, class: 'btn btn-success pt-50' %>
- -->    </div>
+    <form action="/cars" method="get" class='form-inline md-form mr-auto mb-4'>
+      <div class="form-group d-flex w-50">
+        <input type="text" name='search' placeholder="Where do you feel like going?" class='form-control mr-sm-2 w-100 shadow'>
+      </div>
+      <input type="date" class='form-control mr-sm-2 shadow' name="start_date">
+      <input type="date" class='form-control mr-sm-2 shadow' name="end_date">
+      <button type="submit" class= 'btn btn-success pt-50 pl-20'><i class="fa fa-search"></i></button>
+    </form>
   </div>
 </div>

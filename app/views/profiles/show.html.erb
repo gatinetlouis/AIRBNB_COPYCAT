@@ -47,6 +47,7 @@
                 <p>Pickup Address: <%=  Car.find(rental.car_id).pick_up_address %></p>
                 <p>Start Date: <%= rental.start_date %></p>
                 <p>End Date: <%= rental.end_date %></p>
+                <p> <%= link_to "Review", new_rental_review_path(rental) %></p>
                 <p><%= link_to "More about the car", car_path(rental.car_id), class: 'text-decoration-none' %> | <%= link_to "Cancel", rental_path(rental), method: :delete, data: { confirm: "Are you sure?" }, class: 'text-decoration-none' %></p>
               </div>
             </div>

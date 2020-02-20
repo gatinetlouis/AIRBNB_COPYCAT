@@ -19,8 +19,9 @@ a:hover{
 }
 
 .navbar {
-  height: 66px;
-  margin: 7px 0px;
+ // height: 66px;
+  //  margin: 7px 0px;
+  height: 80px;
 }
 
 .nav-item p {
@@ -35,9 +36,14 @@ a:hover{
   position: sticky;
   top: 0;
   z-index: 1;
-  background-color: #F4F4F4 ;
 }
 
+
+.navbar {
+  position: sticky;
+  top: 0;
+  background-color: #F7F5F6;
+}
 
 // .background-banner {
 //   background-color: transparent;
