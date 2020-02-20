@@ -8,4 +8,31 @@ class User < ApplicationRecord
   has_many :reviews, through: :rentals
   validates :username, presence: true, uniqueness: true, length: { minimum: 4 }
   validates :phone_number, presence: true
+
+  def renters
+    renters = []
+    self.cars.each do |car|
+      car.rentals.each do |rental|
+        renters << rental
+      end
+    end
+    return renters
+  end
+
+  def any_new_trip?
+    answer = []
+    # unless self.rentals.blank?
+    self.rentals.each do |rental|
+      answer << rental.finished?
+    end
+    answer.include?(false)
+  end
+
+  def any_new_renter?
+    answer = []
+    self.renters.each do |rental|
+      answer << rental.finished?
+    end
+    answer.include?(false)
+  end
 end

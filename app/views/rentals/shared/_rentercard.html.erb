@@ -1,0 +1,13 @@
+<div class="card rental-card mt-5" style="height: 60vh;">
+  <img src="#" alt="" style="border-radius: 50%; width: 50px; height: 50px; border: 1px solid grey;">
+  <%#= cl_image_tag rental.user.photo.key, height: 300, width: 400, crop: :fill %>
+  <!-- Louis -->
+  <h5><%= renter.user.username %></h5>
+  <p><%= renter.user.email %></p>
+  <p><%= renter.user.phone_number %></p>
+  <p><%= renter.start_date %> ~ <%= renter.end_date %> | <%= renter.days %></p>
+  <p>€ <%= renter.price %></p>
+  <p><%= renter.car.pick_up_address %></p>
+  <!-- <p><%#= rental.message %></p> -->
+  <!-- ajouter dans le seed -->
+</div>

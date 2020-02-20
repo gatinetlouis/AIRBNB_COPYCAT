@@ -20,12 +20,12 @@
         <% if current_user.nil? %>
           <%= link_to new_user_session_path do %>
             <i class="fas fa-car fa-lg"></i>
-            <p class='mt-0'> My cars </p>
+            <p class='mt-0'> My activities </p>
           <% end %>
         <% elsif policy(current_user).show? %>
-          <%= link_to profile_cars_path(current_user) do %>
+          <%= link_to rentals_path do %>
             <i class='fas fa-car fa-lg'></i>
-            <p class='mt-0'> My cars </p>
+            <p class='mt-0'> My activities </p>
           <% end %>
         <% end %>
       </div>

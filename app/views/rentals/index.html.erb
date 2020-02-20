@@ -1,23 +1,100 @@
-<div class="container my-5">
-  <h1>All your rentals (you rent others' car)</h1>
-  <div class="row">
-    <% current_user.rentals.each do |rental| %>
-      <div class="col-sm-4">
-        <div class="card rental-card mt-5" style="height: 63vh;">
-          <%= cl_image_tag rental.car.photo.key, crop: :fill, class: "card-img-top" %>
-          <div class="card-body">
-            <h5 class="card-title"><%= Car.find(rental.car_id).model %></h5>
-            <h6>€ <%= ((rental.end_date - rental.start_date) * Car.find(rental.car_id).price_per_day / (60*60*24)).round %></h6>
-            <p>Pickup Address: <%=  Car.find(rental.car_id).pick_up_address %></p>
-            <p>Start Date: <%= rental.start_date %></p>
-            <p>End Date: <%= rental.end_date %></p>
-            <p> <%= link_to "Review", new_rental_review_path(rental) %><p>
-            <p><%= link_to "More about the car", car_path(rental.car_id), class: 'text-decoration-none' %> | <%= link_to "Cancel", rental_path(rental), method: :delete, data: { confirm: "Are you sure?" }, class: 'text-decoration-none' %></p>
-
-          </div>
+<div class="activities container my-5">
+  <div class="nav">
+    <button class="btn btn-secondary" id='btn-trips'>My Trips</button>
+    <button class="btn btn-secondary" id='btn-renters'>My Renters</button>
+  </div>
+<!-- trips -->
+  <div class="trips">
+    <h1>Trips</h1>
+    <!-- trips coming -->
+    <h4>What's coming up</h4>
+    <% unless current_user.any_new_trip? %>
+      <p>You don’t have anything coming up—--start exploring ideas for your next trip.</p>
+      <%= image_tag 'activities_none.jpg' %>
+      <!-- why not a gif of small car -->
+    <% end %>
+    <%= link_to 'Explore Jacky', cars_path, class: 'btn btn-secondary' %>
+    <div class="row">
+      <% current_user.rentals.each do |rental| %>
+        <div class="col-sm-4">
+          <% if rental.end_date > Time.zone.now %>
+            <!-- card design -->
+            <%= render 'rentals/shared/tripcard', rental: rental %>
+            <!-- card design -->
+          <% end %>
         </div>
+      <% end %>
+    </div>
+
+    <!-- trips history -->
+    <h4>What you've done</h4>
+    <% if current_user.rentals.blank? %>
+      <p>You don’t have any trip yet—--explore Jacky for your trip.</p>
+      <%= image_tag 'activities_none.jpg' %>
+    <% else %>
+      <div class="row">
+        <% current_user.rentals.each do |rental| %>
+          <div class="col-sm-4">
+            <% if rental.end_date <= Time.zone.now %>
+              <!-- card design -->
+              <%= render 'rentals/shared/tripcard', rental: rental %>
+              <!-- card design -->
+            <% end %>
+          </div>
+        <% end %>
       </div>
     <% end %>
   </div>
-  <%= link_to "Back to profile", profile_path(current_user), class: "text-decoration-none" %>
+
+  <!-- renters -->
+  <div class="renters d-none">
+    <h1>Renters</h1>
+    <!-- renters coming -->
+    <h4>Who's coming up</h4>
+    <% unless current_user.any_new_renter? %>
+      <p>You don’t have any new renter—--make your car more fancy.</p>
+      <%#= image_tag 'activities_none.jpg' %>
+    <% end %>
+    <div class="row">
+      <% current_user.renters.each do |renter| %>
+        <!-- renter here is the rental instance of the renter -->
+        <div class="col-sm-4">
+          <% if renter.end_date > Time.zone.now %>
+            <!-- card design -->
+            <%= render 'rentals/shared/rentercard', renter: renter %>
+            <!-- card design -->
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <!-- renters history -->
+    <h4>Who you've met</h4>
+    <% if current_user.renters.blank? %>
+      <p>Oops! You don’t have any renter yet—--make your car more fancy.</p>
+      <%= image_tag 'activities_none.jpg' %>
+    <% else %>
+      <div class="row">
+        <% current_user.renters.each do |renter| %>
+          <!-- renter here is the rental instance of the renter -->
+          <div class="col-sm-4">
+            <% if renter.end_date <= Time.zone.now %>
+              <!-- card design -->
+              <%= render 'rentals/shared/rentercard', renter: renter %>
+              <!-- card design -->
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>
+
+
+
+
+
+
+
+
+
+
