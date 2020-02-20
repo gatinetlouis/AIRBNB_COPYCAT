@@ -6,19 +6,19 @@
     <% end %>
       <!-- <img src="../../assets/images/Logo_Jackynb.png" alt='logo'> -->
     <div class="content d-flex pr-20">
-      <div class="nav-item text-center mr-5 mt-0 mb-0">
+      <div class="nav-item text-center mr-5 mt-10 mb-0">
         <%= link_to cars_path do  %>
           <i class="fas fa-search"></i>
           <p class='mt-0'> Cars </p>
         <% end %>
       </div>
-      <div class='nav-item text-center m-0 mr-5 mt-0 mb-0'>
+      <div class='nav-item text-center  mr-5 mt-10 mb-0'>
         <%= link_to new_car_path do %>
           <i class='fas fa-plus'></i>
           <p class='mt-0'> Rent my car</p>
         <% end %>
       </div>
-      <div class="nav-item text-center m-0 mr-5">
+      <div class="nav-item text-center mt-10 mr-5">
         <% if current_user.nil? %>
           <%= link_to new_user_session_path do %>
             <i class="fas fa-angle-down"></i>
