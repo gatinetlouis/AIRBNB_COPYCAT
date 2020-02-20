@@ -15,7 +15,7 @@
       <div class='nav-item text-center  mr-5 mt-10 mb-0'>
         <%= link_to new_car_path do %>
           <i class='fas fa-plus'></i>
-          <p class='mt-0'> Rent my car</p>
+          <p class='mt-0'> Add a car</p>
         <% end %>
       </div>
       <div class="nav-item text-center mt-10 mr-5">
@@ -34,16 +34,25 @@
       <div class='nav-item text-center profile-dropdown '>
         <% if current_user.nil? %>
           <%= link_to new_user_session_path do %>
-            <i class='far fa-user'></i>
-            <p class='mt-0'> Create account </p>
+            <div class='nav-icon'>
+              <i class='far fa-user'></i>
+              <p class='mt-0'> Login </p>
+            </div>
           <% end %>
         <% elsif policy(current_user).show? %>
-            <%#= cl_image_tag current_user.photo.key, class: 'avatar-large'%>
           <button class="btn dropdown-toggle" type="button" id="menu1" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+<<<<<<< HEAD
             <%#= cl_image_tag current_user.photo.key, class: 'avatar-large'%>
+=======
+            <% if current_user.photo.attached?%>
+              <%= cl_image_tag current_user.photo.key, class: 'avatar-large'%>
+            <% else %>
+              <i class='far fa-user avatar-large'></i>
+            <% end %>
+>>>>>>> 7cc06566396ab262b37f3e9b79e846cc3e232746
           </button>
-        <div class="dropdown dropleft">
-          <div class="dropdown-menu" role="menu" aria-labelledby="menu1">
+        <div class="dropdown ">
+          <div class="dropdown-menu dropdown-menu-right shadow-sm rounded mt-1" role="menu" aria-labelledby="menu1">
               <%= link_to "My profile",profile_path(current_user), class: 'dropdown-item'  %>
               <%= link_to "Update my informations", edit_user_registration_path, class: 'dropdown-item'  %>
               <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>

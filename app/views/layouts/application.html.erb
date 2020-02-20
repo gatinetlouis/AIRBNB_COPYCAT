@@ -13,10 +13,10 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
-    <!-- <div class="jackynb-background"> -->
     <%= render "shared/navbar" %>
-    <%= yield %>
-    <!-- </div> -->
+    <div class="<%= 'jackynb-background' unless params[:action] == 'home' %>">
+      <%= yield %>
+    </div>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
   </body>
