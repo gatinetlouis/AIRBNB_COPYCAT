@@ -34,10 +34,10 @@
       <div class='nav-item text-center profile-dropdown '>
         <% if current_user.nil? %>
           <%= link_to new_user_session_path do %>
-          <div class='nav-icon'>
-            <i class='far fa-user'></i>
-
-            <p class='mt-0'> Login </p>
+            <div class='nav-icon'>
+              <i class='far fa-user'></i>
+              <p class='mt-0'> Login </p>
+            </div>
           <% end %>
         <% elsif policy(current_user).show? %>
           <button class="btn dropdown-toggle" type="button" id="menu1" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
