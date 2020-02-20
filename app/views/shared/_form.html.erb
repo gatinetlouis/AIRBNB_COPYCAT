@@ -1,19 +1,16 @@
 <h1> Rent your car </h1>
-
 <p> Please fill your Car's Informations: </p>
-
-
-<%= simple_form_for [@car] do |f| %>
-        <%= f.input :brand %>
-        <%= f.input :model %>
-        <%= f.input :pick_up_address%>
-        <%= f.input :pick_up_city %>
-        <%= f.input :price_per_day %>
-        <%= f.input :description %>
-        <%= f.input :color %>
-        <%= f.input :watts %>
-        <%= f.input :rim_size %>
-         <%= f.input :neon, as: :boolean%>
+<%= simple_form_for [@car] do |f|%>
+        <%= f.input :brand, input_html: { class: "new-car-input" } %>
+        <%= f.input :model, input_html: { class: "new-car-input" } %>
+        <%= f.input :pick_up_address, input_html: { class: "new-car-input" } %>
+        <%= f.input :pick_up_city, input_html: { class: "new-car-input" } %>
+        <%= f.input :price_per_day, input_html: { class: "new-car-input" } %>
+        <%= f.input :description, input_html: { class: "new-car-input" } %>
+        <%= f.input :color, input_html: { class: "new-car-input" } %>
+        <%= f.input :watts, input_html: { class: "new-car-input" } %>
+        <%= f.input :rim_size, input_html: { class: "new-car-input" } %>
+         <%= f.input :neon, as: :boolean, input_html: { class: "new-car-input" } %>
         <%= f.input :photo, as: :file %>
-        <%= f.submit class:'btn btn-success btn-block' %>
+        <%= f.submit class:'btn btn-jacky btn-block' %>
       <% end %>
