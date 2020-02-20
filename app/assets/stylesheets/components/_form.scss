@@ -1,18 +1,25 @@
-.form_items{
-  font-color:red;
-  background-color: black;
-}
 
-.devise-form{
+.new-car-form {
   background-color: rgba(0, 0, 0, 0.4);
   color: #F7F7F7;
-  font-family: arial;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
   font-size: 13px;
   display: flex;
   text-align: center;
+  justify-content: center;
+  margin: 10px auto 0 auto;
+  border-radius: 8px;
+  width: 33%;
+  padding: 10px;
 }
 
-.form-control{
+.new-car-input {
   background-color: transparent;
-  border-radius: 13px;
+  border-radius: 10px;
 }
+
+
+// .form_items{
+//   background-color: black;
+// }
