@@ -73,7 +73,7 @@ first_car = Car.new(
   price_per_day: 134,
   description: "Je vous propose une audi A4 tuning, c'est un modèle unique. Elle a de belles jantes noires, parfait pour un we",
   pick_up_address: "10 Rue Louise de Bettignies, 59133 Phalempin",
-  pick_up_city: "Fallempin",
+  pick_up_city: "Phalempin",
   fuel_type: "Diesel",
   automatic: true,
   neon: true,
@@ -142,11 +142,30 @@ fourth_car = Car.new(
   neon: true,
   watts:  500,
   rim_size: 200,
-  user_id: user_id.sample
+  user_id: user_id[1]
   )
 fourth_car_photo = URI.open("https://www.tuningblog.eu/fr/wp-content/uploads/2017/11/Orange-Beast-Renntech-Mercedes-AMG-GT-R-Tuning-7.jpg")
 fourth_car.photo.attach(io: fourth_car_photo, filename: 'amg.png', content_type: 'image/png')
 fourth_car.save
+
+fifth_car = Car.new(
+  brand: "Toyoya",
+  model: "Toyota Prius",
+  color: "Yellow",
+  price_per_day: 100,
+  description: "Ma super toyota prius pimpée comme jamais, enjoliveur du feu de dieu",
+  pick_up_address: "1 rue daumier, 13008 Marseille",
+  pick_up_city: "Marseille",
+  fuel_type: "Gasoil",
+  automatic: true,
+  neon: true,
+  watts:  500,
+  rim_size: 100,
+  user_id: user_id[1]
+  )
+fifth_car_photo = URI.open("https://www.carscoops.com/wp-content/uploads/2016/05/32758c47-prius-wald-14.jpg")
+fifth_car.photo.attach(io: fifth_car_photo, filename: 'prius.png', content_type: 'image/png')
+fifth_car.save
 
 car_id = []
 Car.all.each do |user|
@@ -156,30 +175,30 @@ end
 
 Rental.create(
   car_id: car_id.sample,
-  user_id: user_id.sample,
-  start_date: '21/01/20',
-  end_date: '23/01/20',
+  user_id: user_id[1],
+  start_date: '21/01/2020',
+  end_date: '23/01/2020',
   )
 
 Rental.create(
   car_id: car_id.sample,
   user_id: user_id.sample,
-  start_date: '25/01/20',
-  end_date: '27/01/20'
+  start_date: '25/01/2020',
+  end_date: '27/01/2020'
+  )
+
+Rental.create(
+  car_id: car_id.sample,
+  user_id: user_id[1],
+  start_date: '01/01/2020',
+  end_date: '04/01/2020'
   )
 
 Rental.create(
   car_id: car_id.sample,
   user_id: user_id.sample,
-  start_date: '01/01/20',
-  end_date: '04/01/20'
-  )
-
-Rental.create(
-  car_id: car_id.sample,
-  user_id: user_id.sample,
-  start_date: '01/02/20',
-  end_date: '10/02/20'
+  start_date: '01/02/2020',
+  end_date: '10/02/2020'
   )
 
 rental_id = []
@@ -188,7 +207,7 @@ Rental.all.each do |user|
 end
 
 Review.create(
-  rental_id: rental_id.sample,
+  rental_id: rental_id[2],
   title: "Super bolide",
   review_type: "feedback_from_renter",
   message: "Superbe we avec ma fem dans cette belle voiturrr tunaié",
@@ -196,7 +215,7 @@ Review.create(
 )
 
 Review.create(
-  rental_id: rental_id.sample,
+  rental_id: rental_id[0],
   title: "Décu du système son",
   review_type: "feedback_from_renter",
   message: "Le système son était pas ouf, mais les LED relevaient le niveau",
