@@ -1,10 +1,8 @@
 <div class='background-navbar'>
-
   <div class="navbar d-flex align-items-center">
     <%= link_to root_path do  %>
       <%= image_tag "logo-jackynb.png", alt: "alttext", class: 'logo center' %>
     <% end %>
-      <!-- <img src="../../assets/images/Logo_Jackynb.png" alt='logo'> -->
     <div class="content d-flex pr-20">
       <div class="nav-item text-center mr-5 mt-10 mb-0">
         <%= link_to cars_path do  %>
@@ -47,14 +45,15 @@
               <i class='far fa-user avatar-large'></i>
             <% end %>
           </button>
-        <div class="dropdown ">
-          <div class="dropdown-menu dropdown-menu-right shadow-sm rounded mt-1" role="menu" aria-labelledby="menu1">
+          <div class="dropdown ">
+            <div class="dropdown-menu dropdown-menu-right shadow-sm rounded mt-1" role="menu" aria-labelledby="menu1">
               <%= link_to "My profile",profile_path(current_user), class: 'dropdown-item'  %>
               <%= link_to "Update my informations", edit_user_registration_path, class: 'dropdown-item'  %>
               <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+            </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
