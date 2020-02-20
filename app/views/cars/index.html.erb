@@ -1,8 +1,8 @@
 <div class='d-flex'>
-  <div class = 'd-flex flex-column align-items-center sticky-map-search'>
-    <div class= 'search-index'>
+  <div class='d-flex flex-column align-items-center sticky-map-search'>
+    <div class='search-index mt-4'>
       <form action="/cars" method="get" class='form-inline md-form mr-auto mb-4'>
-        <div class="form-group d-flex">
+        <div class="form-group d-flex ">
           <input type="text" name='search' placeholder="City" class='form-control-search mr-sm-2 w-100 shadow'>
         </div>
         <input type="date" class='form-control-search mr-sm-2 shadow' name="start_date">
@@ -10,17 +10,17 @@
         <button type="submit" class= 'btn btn-success pt-50 pl-20'><i class="fa fa-search"></i></button>
       </form>
     </div>
-    <div id="map" class="mt-4" ></div>
+    <div id="map" class="mt-4"></div>
   </div>
 
   <div class='index'>
     <div class="container">
-      <div class="row">
+      <div class="row all-cars mt-4">
         <div class='title-div'>
           <h2 class='title-all-cars'>All cars</h2>
         </div>
           <% @cars.each do |car| %>
-            <div class="card car-card w-100 m-4 d-flex flex-row">
+            <div class=" car-card w-100 m-4 d-flex flex-row">
               <div class= "photo w-60">
                 <% if car.photo.attached? %>
                   <%= cl_image_tag car.photo.key, height: 300, width: 400, crop: :fill, class: 'card-img-top photo' %>
@@ -36,7 +36,7 @@
 
                 <p class="card-text  padding-card"> <%= car.description %> </p>
                 <ul class="list-group list-group-flush">
-                  <li class="list-group-item pick_up_address" ><i class="fas fa-map-pin"> </i><%= car.pick_up_address %></li>
+                  <li class="pick_up_address" ><i class="fas fa-map-pin"> </i><%= car.pick_up_address %></li>
                 </ul>
                   <div class='d-flex padding-card flex-row-reverse pr-20 pb-2'>
                     <div class='price btn-ghost align-content-right'><i class="fas fa-euro-sign"></i> <strong> <%= car.price_per_day %> /day </strong></div>

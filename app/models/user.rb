@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :reviews, through: :rentals
   validates :username, presence: true, uniqueness: true, length: { minimum: 4 }
   validates :phone_number, presence: true
+  has_one_attached :photo
 
   def renters
     renters = []

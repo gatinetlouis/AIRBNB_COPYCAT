@@ -1,11 +1,9 @@
 // Import page-specific CSS files here.
 @import "home";
+@import "show";
 
 
-#map {
-  height: 82%;
-  width: 600px;
-}
+// ALEXANDRE BK : ALL LINES BELOW SHOULD GO IN COMPONENTS OR PAGES !!
 
 .form-control-search {
   width: 110px;
@@ -39,6 +37,17 @@
 .car-card {
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin-bottom: 0px;
+  display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 2px;
 
 }
 
@@ -94,6 +103,9 @@ h1 {
 
 .pick_up_address {
   border: none;
+  display: block;
+  padding: 0.75rem 1.25rem;
+  background-color: #fff;
 }
 
 .title-all-cars {
@@ -109,9 +121,9 @@ h1 {
 
 
 .sticky-map-search {
-  height: 100vh;
+  height:   calc(100vh - 80px);
   position: sticky;
-  top: 72px;
+  top:      80px;
 }
 
 
@@ -119,9 +131,10 @@ h1 {
   height: 5%;
 }
 
-.all-cards {
+.all-cars {
   height: 82%;
   width: 100%;
+  overflow: scroll;
 }
 
 .width-date {
