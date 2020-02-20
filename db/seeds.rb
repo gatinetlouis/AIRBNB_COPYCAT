@@ -11,7 +11,7 @@ puts "#{Car.count} users"
 puts "#{Rental.count} users"
 puts "#{Review.count} users"
 
-puts "======DELETING======"
+puts "DELETING"
 User.destroy_all
 Car.destroy_all
 Rental.destroy_all
@@ -21,7 +21,7 @@ puts "#{Car.count} users"
 puts "#{Rental.count} users"
 puts "#{Review.count} users"
 
-puts "======SEEDING======"
+puts "SEEDING"
 
 
 User.destroy_all
