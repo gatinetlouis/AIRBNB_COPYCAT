@@ -12,7 +12,6 @@ a:hover{
 
 .navbar a  {
   color:      black;
-  font-size:  23px;
 }
 
 .content {
@@ -20,6 +19,8 @@ a:hover{
 }
 
 .navbar {
+ // height: 66px;
+  //  margin: 7px 0px;
   height: 80px;
 }
 
@@ -37,14 +38,15 @@ a:hover{
   z-index: 1;
 }
 
+
 .navbar {
   position: sticky;
   top: 0;
   background-color: #F7F5F6;
 }
 
-
 // .background-banner {
 //   background-color: transparent;
 //   padding: 5px 0px;
 // }
+

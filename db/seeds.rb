@@ -30,23 +30,33 @@ Review.destroy_all
 Rental.destroy_all
 
 
-User.create(
+amandine = User.new(
   username: "mandou13",
   password: "azerty",
   phone_number: "073947594039",
   email: "amandine.legal@me.com")
+photo_a = URI.open('https://avatars3.githubusercontent.com/u/58696274?v=4')
+amandine.photo.attach(io: photo_a, filename: 'photogithub.png', content_type: 'image/png')
+amandine.save
 
-User.create(
+maxence = User.new(
   username: "maxtuninglover",
   password: "azerty",
   phone_number: "073947594039",
   email: "maxence.mdr@me.com")
+photo_m = URI.open('https://avatars3.githubusercontent.com/u/58698893?v=4')
+maxence.photo.attach(io: photo_m, filename: 'photogithub.png', content_type: 'image/png')
+maxence.save
 
-User.create(
+louis = User.new(
   username: "Gatuning",
   password: "azerty",
   phone_number: "073947164039",
   email: "gattuning@me.com")
+
+photo = URI.open('https://avatars2.githubusercontent.com/u/56741514?v=4')
+louis.photo.attach(io: photo, filename: "photogithub.png", content_type: 'image/png')
+louis.save
 
 User.create(
   username: "dortuning",
@@ -54,11 +64,14 @@ User.create(
   phone_number: "0739893967",
   email: "dortuning@me.com")
 
-User.create(
+pauline = User.new(
   username: "Paopao",
   password: "azerty",
   phone_number: "0642462227",
   email: "pauline@me.com")
+photo_p = URI.open("https://avatars1.githubusercontent.com/u/58698738?v=4")
+pauline.photo.attach(io: photo_p, filename: "photogithub.png", content_type: "image/png")
+pauline.save
 
 user_id = []
 User.all.each do |user|
