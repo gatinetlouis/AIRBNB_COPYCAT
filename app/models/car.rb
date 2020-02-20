@@ -7,4 +7,5 @@ class Car < ApplicationRecord
   validates :description, presence: true, length: { minimum: 10, maximum: 300 }
 
   has_one_attached :photo
+  validates :photo, presence: true
 end

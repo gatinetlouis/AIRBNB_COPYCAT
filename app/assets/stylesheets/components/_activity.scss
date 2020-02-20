@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+.activity-nav .nav-link {
+  background-color: #F7F5F6;
+  width: 150px;
+  border: 1px solid #dee2e6;
+
+}
+
+.activity-nav .nav-link.active {
+  background-color: #6C757D;
+  color: white;
+
+}
+
+.activity-body h3 {
+  font-weight: bold;
+  margin-bottom: 15px;
+  // font-family: 'Open Sans', sans-serif;
+}
+
+.activity-body h5 {
+  margin-bottom: 20px;
+  // font-family: 'Open Sans', sans-serif;
+}
+
+.activity-body {
+  border-left: 1px solid #dee2e6;
+  border-right: 1px solid #dee2e6;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.tripcard {
+  .card-img {
+  }
+}

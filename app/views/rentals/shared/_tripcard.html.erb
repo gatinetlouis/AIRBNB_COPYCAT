@@ -1,12 +1,27 @@
-<div class="card rental-card mt-5" style="height: 63vh;">
-  <%= cl_image_tag rental.car.photo.key, crop: :fill, class: "card-img-top" %>
-  <div class="card-body">
-    <h5 class="card-title"><%= Car.find(rental.car_id).model %></h5>
-    <h6>€ <%= rental.price %></h6>
-    <p>Pickup Address: <%=  Car.find(rental.car_id).pick_up_address %></p>
-    <p>Start Date: <%= rental.start_date %></p>
-    <p>End Date: <%= rental.end_date %></p>
-    <p><%= link_to "More about the car", car_path(rental.car_id), class: 'text-decoration-none' %></p>
-    <%= link_to "Cancel", rental_path(rental), method: :delete, data: { confirm: "Are you sure?" }, class: 'text-decoration-none' %>
+<div class="card mt-5 tripcard border-0 rounded shadow-sm">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <%= cl_image_tag rental.car.photo.key, class: "card-img full-screen" %>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body p-0 m-3">
+        <h5 class="card-title"><%= Car.find(rental.car_id).model %></h5>
+        <h6>€ <%= rental.price %></h6>
+        <p><i class="fas fa-map-marker-alt"></i>
+          <%=  Car.find(rental.car_id).pick_up_address %></p>
+        <p><i class="far fa-calendar-alt"></i>
+          <%= rental.start_date.strftime("%b %d") %> - <%= rental.end_date.strftime("%b %d") %></p>
+        <div class="link-icons" style="flex-grow: 1;">
+
+          <%= link_to car_path(rental.car_id), class: 'text-decoration-none' do %>
+            More about <i class="fas fa-car-side"></i>
+          <% end %>
+          <%= link_to rental_path(rental), method: :delete, data: { confirm: "Are you sure?" }, class: 'text-decoration-none' do %>
+            Cancel <i class="fas fa-trash text-muted"></i>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
   </div>
 </div>

@@ -25,7 +25,7 @@
             <p class='mt-0'> My activity </p>
           <% end %>
         <% elsif policy(current_user).show? %>
-          <%= link_to profile_path(current_user) do %>
+          <%= link_to rentals_path do %>
           <i class="fas fa-angle-down"></i>
           <p class='mt-0'> My activity </p>
           <% end %>
@@ -40,7 +40,7 @@
         <% elsif policy(current_user).show? %>
             <%#= cl_image_tag current_user.photo.key, class: 'avatar-large'%>
           <button class="btn dropdown-toggle" type="button" id="menu1" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
-            <%= cl_image_tag current_user.photo.key, class: 'avatar-large'%>
+            <%#= cl_image_tag current_user.photo.key, class: 'avatar-large'%>
           </button>
         <div class="dropdown dropleft">
           <div class="dropdown-menu" role="menu" aria-labelledby="menu1">
