@@ -3,7 +3,7 @@ class Review < ApplicationRecord
   belongs_to :rental
 
   validates :title, :message, :rating, presence: true
-  validates :review_type, inclusion: { in: REVIEW_TYPES_VALUES }
+  validates :review_type, presence: true, inclusion: { in: REVIEW_TYPES_VALUES }
 
 
   def car
