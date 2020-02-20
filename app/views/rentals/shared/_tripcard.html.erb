@@ -1,27 +1,37 @@
-<div class="card mt-5 tripcard border-0 rounded shadow-sm">
+<div class="card mt-5 tripcard border-0 rounded shadow p-3">
   <div class="row no-gutters">
-    <div class="col-md-4">
-      <%= cl_image_tag rental.car.photo.key, class: "card-img full-screen" %>
+    <div class="col-md-6">
+      <%= cl_image_tag rental.car.photo.key, class: "card-img shadow" %>
     </div>
-    <div class="col-md-8">
-      <div class="card-body p-0 m-3">
-        <h5 class="card-title"><%= Car.find(rental.car_id).model %></h5>
-        <h6>€ <%= rental.price %></h6>
-        <p><i class="fas fa-map-marker-alt"></i>
-          <%=  Car.find(rental.car_id).pick_up_address %></p>
-        <p><i class="far fa-calendar-alt"></i>
-          <%= rental.start_date.strftime("%b %d") %> - <%= rental.end_date.strftime("%b %d") %></p>
-        <div class="link-icons" style="flex-grow: 1;">
+    <div class="col-md-6 d-flex flex-column justify-content-between">
 
-          <%= link_to car_path(rental.car_id), class: 'text-decoration-none' do %>
-            More about <i class="fas fa-car-side"></i>
-          <% end %>
+      <div class="card-body">
+
+        <div class="first-line d-flex justify-content-between">
+          <h5 class="card-title font-weight-bold mb-2"><%= Car.find(rental.car_id).model %></h5>
           <%= link_to rental_path(rental), method: :delete, data: { confirm: "Are you sure?" }, class: 'text-decoration-none' do %>
-            Cancel <i class="fas fa-trash text-muted"></i>
+            <i class="fas fa-trash"></i>
           <% end %>
-
         </div>
+
+        <div class="other-lines d-flex flex-column justify-content-start">
+          <h6 class='mb-1'><i class="fas fa-euro-sign mr-2"></i><%= rental.price %></h6>
+          <p class='mb-1'><i class="fas fa-map-marker-alt mr-2"></i>
+            <%=  Car.find(rental.car_id).pick_up_address %></p>
+          <p><i class="far fa-calendar-alt mr-2"></i>
+            <%= rental.start_date.strftime("%b %d") %> - <%= rental.end_date.strftime("%b %d") %></p>
+        </div>
+
       </div>
+
+
+      <div class="link-icons p-0 ml-3 d-flex">
+        <%= link_to 'More about car', car_path(rental.car_id), class: 'text-decoration-none btn btn-secondary btn-car' %>
+        <%= link_to new_rental_review_path(rental), class: 'ml-1' do  %>
+          <i class="far fa-comment-alt btn btn-secondary btn-review"></i>
+        <% end %>
+      </div>
+
     </div>
   </div>
 </div>

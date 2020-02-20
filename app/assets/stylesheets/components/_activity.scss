@@ -3,13 +3,12 @@
 .activity-nav .nav-link {
   background-color: #F7F5F6;
   width: 150px;
-  border: 1px solid #dee2e6;
+  border-bottom: 1px solid #dee2e6;
 
 }
 
 .activity-nav .nav-link.active {
-  background-color: #6C757D;
-  color: white;
+  background-color: white;
 
 }
 
@@ -31,6 +30,39 @@
 }
 
 .tripcard {
+  background-image: url('background-jackynb.jpg');
+  background-size: cover;
   .card-img {
+    height: 100%;
+  }
+  .card-body {
+    padding: 0 0 0 20px;
+    .fa-trash {
+      color: rgba(200, 200, 200, 0.8);
+    }
+    .fa-trash:hover {
+      color: rgba(150, 150, 150, 0.8);
+    }
+  }
+  h6, p {
+    font-size: 15px;
+    color: rgba(100, 100, 100, 1);
+  }
+  .link-icons .btn {
+    // background-color: #b24951;
+    color: white;
+  }
+
+  .btn-car {
+    flex-grow: 1;
+  }
+
+  .btn-review {
+    padding: 0.75rem 0.85rem;
+    font-size: 1rem;
+  }
+
+  .other-lines {
+    // line-height: 0.8;
   }
 }
