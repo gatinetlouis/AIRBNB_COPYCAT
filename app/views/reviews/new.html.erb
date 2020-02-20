@@ -1,6 +1,10 @@
-<%= simple_form_for [@rental, @review] do |f| %>
-  <%= f.input :title %>
-  <%= f.input :message %>
-  <%= f.input :rating  %>
-  <%= f.submit "add a review", class: "btn btn-primary" %>
-<% end %>
+<div class="devise-background">
+  <div class="devise-form">
+      <%= simple_form_for [@rental, @review] do |f| %>
+        <%= f.input :title %>
+        <%= f.input :message %>
+        <%= f.input :rating  %>
+        <%= f.submit "add a review", class: "btn btn-primary" %>
+      <% end %>
+  </div>
+</div>
