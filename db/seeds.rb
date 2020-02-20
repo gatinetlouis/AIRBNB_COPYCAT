@@ -17,9 +17,9 @@ Car.destroy_all
 Rental.destroy_all
 Review.destroy_all
 puts "#{User.count} users"
-puts "#{Car.count} users"
-puts "#{Rental.count} users"
-puts "#{Review.count} users"
+puts "#{Car.count} cars"
+puts "#{Rental.count} rentals"
+puts "#{Review.count} reviews"
 
 puts "SEEDING"
 
@@ -252,6 +252,6 @@ Review.create(
 )
 
 puts "#{User.count} users"
-puts "#{Car.count} users"
-puts "#{Rental.count} users"
-puts "#{Review.count} users"
+puts "#{Car.count} cars"
+puts "#{Rental.count} rentals"
+puts "#{Review.count} reviews"
