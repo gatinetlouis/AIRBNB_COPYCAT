@@ -7,9 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require "open-uri"
 puts "#{User.count} users"
-puts "#{Car.count} users"
-puts "#{Rental.count} users"
-puts "#{Review.count} users"
+puts "#{Car.count} cars"
+puts "#{Rental.count} rentals"
+puts "#{Review.count} reviews"
 
 puts "DELETING"
 User.destroy_all
@@ -92,7 +92,7 @@ first_car = Car.new(
   neon: true,
   watts:  356,
   rim_size: 450,
-  user_id: user_id.sample
+  user_id: amandine.id
   )
 
 first_car_photo = URI.open('https://www.tuningblog.eu/fr/wp-content/uploads/2017/10/Audi-A4-Avant-B8-Tuning-Purple-Pink-mattschwarz-Folierung-1.jpg')
@@ -113,7 +113,7 @@ second_car = Car.new(
   neon: true,
   watts:  500,
   rim_size: 650,
-  user_id: user_id.sample
+  user_id: pauline.id
   )
 
 second_car_photo = URI.open("https://www.supercars.net/blog/wp-content/uploads/2016/04/2007_Peugeot_207S20003.jpg")
@@ -134,7 +134,7 @@ third_car = Car.new(
   neon: true,
   watts:  356,
   rim_size: 450,
-  user_id: user_id.sample
+  user_id: maxence.id
   )
 
 third_car_photo = URI.open("https://www.tuningblog.eu/fr/wp-content/uploads/2020/02/GMC-Sierra-2500HD-Tuning-Lift-Kit-18.jpg")
@@ -155,7 +155,7 @@ fourth_car = Car.new(
   neon: true,
   watts:  500,
   rim_size: 200,
-  user_id: user_id[1]
+  user_id: amandine.id
   )
 fourth_car_photo = URI.open("https://www.tuningblog.eu/fr/wp-content/uploads/2017/11/Orange-Beast-Renntech-Mercedes-AMG-GT-R-Tuning-7.jpg")
 fourth_car.photo.attach(io: fourth_car_photo, filename: 'amg.png', content_type: 'image/png')
@@ -174,7 +174,7 @@ fifth_car = Car.new(
   neon: true,
   watts:  500,
   rim_size: 100,
-  user_id: user_id[1]
+  user_id: louis.id
   )
 fifth_car_photo = URI.open("https://www.carscoops.com/wp-content/uploads/2016/05/32758c47-prius-wald-14.jpg")
 fifth_car.photo.attach(io: fifth_car_photo, filename: 'prius.png', content_type: 'image/png')
@@ -187,37 +187,69 @@ end
 
 
 Rental.create(
-  car_id: car_id.sample,
-  user_id: user_id[1],
+  car_id: first_car.id,
+  user_id: louis.id,
   start_date: '21/01/2020',
   end_date: '23/01/2020',
   )
 
 Rental.create(
-  car_id: car_id.sample,
-  user_id: user_id.sample,
-  start_date: '25/01/2020',
-  end_date: '27/01/2020'
+  car_id: second_car.id,
+  user_id: louis.id,
+  start_date: '01/02/2020',
+  end_date: '04/02/2020'
   )
 
 Rental.create(
-  car_id: car_id.sample,
-  user_id: user_id[1],
-  start_date: '01/01/2020',
-  end_date: '04/01/2020'
+  car_id: third_car.id,
+  user_id: louis.id,
+  start_date: '8/06/2020',
+  end_date: '10/06/2020'
   )
 
-Rental.create(
-  car_id: car_id.sample,
-  user_id: user_id.sample,
+amandine_rental = Rental.new(
+  car_id: fifth_car.id,
+  user_id: amandine.id,
   start_date: '01/02/2020',
   end_date: '10/02/2020'
+  )
+amandine_rental.save
+
+pauline_rental = Rental.new(
+  car_id: fifth_car.id,
+  user_id: pauline.id,
+  start_date: '04/01/2020',
+  end_date: '5/01/2020'
+  )
+pauline_rental.save
+
+Rental.create(
+  car_id: fifth_car.id,
+  user_id: maxence.id,
+  start_date: '01/04/2020',
+  end_date: '10/04/2020'
   )
 
 rental_id = []
 Rental.all.each do |user|
   rental_id << user.id
 end
+
+Review.create(
+  rental_id: rental_id[0],
+  title: "Pb de moteur",
+  review_type: "feedback_from_renter",
+  message: "La voiture nous a laché au milieu du week-end.. La grosse galère",
+  rating: 1
+)
+
+Review.create(
+  rental_id: rental_id[1],
+  title: "feedback_from_owner",
+  review_type: "Un locataire très sale",
+  message: "Des déchêts plein la voiture....",
+  rating: 1
+)
 
 Review.create(
   rental_id: rental_id[2],
@@ -228,27 +260,19 @@ Review.create(
 )
 
 Review.create(
-  rental_id: rental_id[0],
-  title: "Décu du système son",
+  rental_id: amandine_rental.id,
+  title: "Décu du système son mais cool",
   review_type: "feedback_from_renter",
-  message: "Le système son était pas ouf, mais les LED relevaient le niveau",
+  message: "Le système son était pas ouf, mais les LED relevaient le niveau. Lourd.",
   rating: 3
 )
 
 Review.create(
-  rental_id: rental_id.sample,
-  title: "Pb de moteur",
+  rental_id: pauline_rental.id,
+  title: "Belle découverte",
   review_type: "feedback_from_renter",
-  message: "La voiture nous a laché au milieu du week-end.. La grosse galère",
-  rating: 1
-)
-
-Review.create(
-  rental_id: rental_id.sample,
-  title: "feedback_from_owner",
-  review_type: "Un locataire très sale",
-  message: "Des déchêts plein la voiture....",
-  rating: 1
+  message: "C'était la première fois que je conduisais une telle voiture. Superbe expérience, je recommande!",
+  rating: 5
 )
 
 puts "#{User.count} users"
