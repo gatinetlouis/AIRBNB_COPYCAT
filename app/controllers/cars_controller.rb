@@ -16,6 +16,10 @@ class CarsController < ApplicationController
     @rental.car = @car
     @rental.user = current_user
     authorize @car
+    @car_reviews = []
+    @rentals = @car.rentals
+    @rentals.each { |rental|  rental.reviews.each { |review| @car_reviews << review }  }
+
   end
 
   def new
