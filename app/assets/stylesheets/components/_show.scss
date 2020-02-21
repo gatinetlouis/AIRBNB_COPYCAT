@@ -1,8 +1,5 @@
 .car-picture {
-  // border-radius: 5px;
-  // position:      relative;
-  // bottom:        41px;
-  // left:          103px;
+ border-radius: 12px;
 }
 
 .show-card{
@@ -11,11 +8,51 @@ border-radius: 10px;
 
 }
 .show-card p{
-color: black;
+color: white;
   font-family: 'Montserrat', sans-serif;
 
 }
 
 .icon{
   color: #E7055F;
+
 }
+
+.card-title{
+  font-size: 25px;
+}
+
+.card-city{
+  font-size: 20px;
+}
+
+.icon-text{
+  font-size: 17px;
+}
+
+.card-title{
+  color: white;
+}
+
+.review-card{
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.comment-card{
+  background-color: white;
+}
+
+.comment-card p {
+  color: black;
+}
+
+.card-title {
+  color: white;
+  font-size: 20px
+}
+
+
+
+
+

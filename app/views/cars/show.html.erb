@@ -28,14 +28,15 @@
               </div> -->
 
 <div class="container">
+  <%= link_to "Back to Home", cars_path, class: 'btn btn-light mt-2' %>
   <div class="row">
     <div class="col-7">
       <div class="card-body-large show-card p-3 mt-3 mb-3">
-        <div class=" d-flex justify-content-between mt-3">
-          <h5 class="card-title-index m-0">
+        <div class=" d-flex justify-content-between ">
+          <h5 class="card-title card-title-index m-0">
             <%= @car.brand %> - <%= @car.model %>
           </h5>
-          <p class="card-text">
+          <p class="card-text card-city">
             <i class="fas fa-map-pin"></i> <%= @car.pick_up_city %>
           </p>
         </div>
@@ -54,27 +55,27 @@
         <div class='card-text d-flex justify-content-between mt-4 text-center' >
           <div>
             <i class="icon fas fa-paint-roller fa-lg"></i>
-            <p class="p-10 font-italic"> <%= @car.color %> </p>
+            <p class="icon-text "> <%= @car.color %> </p>
           </div>
           <div>
             <i class="icon fas fa-euro-sign fa-lg"></i>
-            <p class="p-10 font-italic"> <%= @car.price_per_day %> </p>
+            <p class="icon-text "> <%= @car.price_per_day %> </p>
           </div>
           <div>
             <i class="icon fas fa-lightbulb fa-lg"></i>
-            <p class="p-10 font-italic"> <%= @car.neon ? "Yes" : "No" %> </p>
+            <p class="icon-text "> <%= @car.neon ? "Yes" : "No" %> </p>
           </div>
           <div>
             <i class="icon fas fa-volume-up fa-lg"></i>
-            <p class="p-10 font-italic"> <%= @car.watts %> watts </p>
+            <p class="icon-text "> <%= @car.watts %> watts </p>
           </div>
           <div>
             <i class="icon fas fa-truck-monster fa-lg"></i>
-            <p class="p-10 font-italic"> <%= @car.rim_size %> '' </p>
+            <p class="icon-text "> <%= @car.rim_size %> '' </p>
           </div>
           <div>
             <i class="icon fas fa-user fa-lg"></i>
-            <p class="p-10 font-italic"> <%= @car.user.username %> </p>
+            <p class="icon-text "> <%= @car.user.username %> </p>
           </div>
         </div>
         <div class="btns mt-3">
@@ -104,19 +105,16 @@
     </div>
   </div>
 
-
-  <div class="card-body-large shadow-sm p-3 mb-3 bg-white rounded">
-    <h1>Comments</h1>
-    <% rentals = @car.rentals %>
-    <% rentals.each do |rental| %>
-      <% reviews = rental.reviews %>
-      <% reviews.each do |review| %>
+  <% unless @car_reviews.empty? %>
+    <div class="card-body-large review-card shadow-sm p-3 mb-3">
+      <h1>Comments</h1>
+      <% @car_reviews.each do |review| %>
         <div class="card mb-2">
-          <div class="card-header">
+          <div class="card-header comment-card">
             <% star = '<i class="fas fa-star text-warning"></i>' %>
             <%= (star * review.rating).html_safe %>
           </div>
-          <div class="card-body">
+          <div class="card-body comment-card">
             <h5 class="card-title"> <%= "#{review.title}" %> </h5>
             <p class="card-text"> <%= "#{review.message}" %> </p>
             <p class="card-text">
@@ -125,6 +123,6 @@
           </div>
         </div>
       <% end %>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>
