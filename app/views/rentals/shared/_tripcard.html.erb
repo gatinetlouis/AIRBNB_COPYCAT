@@ -1,4 +1,4 @@
-<div class="card mt-4 tripcard border-0 rounded shadow p-3">
+<div class="card mt-4 tripcard border-0 rounded shadow">
   <div class="row no-gutters">
     <div class="col-md-6 images">
       <%= cl_image_tag rental.car.photo.key, class: "card-img shadow" %>
@@ -11,33 +11,31 @@
     <div class="col-md-6 d-flex flex-column justify-content-between">
 
       <div class="card-body">
-
         <div class="first-line d-flex justify-content-between">
           <h5 class="card-title font-weight-bold mb-2"><%= Car.find(rental.car_id).model %></h5>
           <%= link_to rental_path(rental), method: :delete, data: { confirm: "Are you sure?" }, class: 'text-decoration-none' do %>
             <i class="fas fa-times-circle"></i>
           <% end %>
         </div>
-
         <div class="other-lines d-flex flex-column justify-content-start">
           <h6 class='mb-1'><i class="fas fa-euro-sign mr-2"></i><%= rental.price %> (<%= rental.days %>)</h6>
           <% if rental.end_date > Time.zone.now %>
             <p class='mb-1'><i class="fas fa-map-marker-alt mr-2"></i>
-              <%=  Car.find(rental.car_id).pick_up_address %></p>
+            <%=  Car.find(rental.car_id).pick_up_address %></p>
           <% end %>
           <p><i class="far fa-calendar-alt mr-2"></i>
           <%= rental.start_date.strftime("%b %d") %> - <%= rental.end_date.strftime("%b %d") %></p>
         </div>
 
+        <div class="link-icons p-0 d-flex">
+          <%= link_to 'Informations', car_path(rental.car_id), class: 'text-decoration-none btn btn-secondary btn-car' %>
+          <%= link_to new_rental_review_path(rental), class: 'ml-1 disabled' do  %>
+            <i class="far fa-comment-alt btn btn-secondary btn-review"></i>
+          <% end %>
+        </div>
       </div>
 
 
-      <div class="link-icons p-0 ml-3 d-flex">
-        <%= link_to 'More about car', car_path(rental.car_id), class: 'text-decoration-none btn btn-secondary btn-car' %>
-        <%= link_to new_rental_review_path(rental), class: 'ml-1 disabled' do  %>
-          <i class="far fa-comment-alt btn btn-secondary btn-review"></i>
-        <% end %>
-      </div>
 
     </div>
   </div>
