@@ -1,18 +1,34 @@
-<div class="card mt-4 reviewcard">
-    <%# if renter.user.photo.attached? %>
-      <%#= cl_image_tag renter.user.photo.key, crop: :fill, class: 'card-img' %>
-    <%# else %>
-      <%#= image_tag 'test.png', class: 'card-img' %>
-    <%# end %>
-    <%= renter.user.username.capitalize %>
-    <h6>Jacky member since <%= renter.user.created_at.strftime("%b %d") %></h6>
-    <div class="d-flex justify-content-between">
-      <div class="card-body p-0">
+<div class="card mt-4 reviewcard p-4">
 
-        <h5 class="card-title font-weight-bold"><%= review.title.capitalize %></h5>
-        <p></i><%= review.rating %> * <i class="fas fa-star"></i> <i class="far fa-star"></i> </p>
-        <p><i class="far fa-envelope-open mr-2"></i><%= review.message %></p>
+
+  <div class="d-flex justify-content-between">
+    <div class="card-body p-0">
+      <div class="stars d-flex justify-content-between" style="width: 20%;">
+        <% review.rating.times do %>
+          <i class="fas fa-star"></i>
+        <% end %>
+        <% (5 - review.rating).times do %>
+          <i class="far fa-star"></i>
+        <% end %>
       </div>
+      <h5 class="card-title font-weight-bold"><%= review.title.capitalize %></h5>
+      <p><i class="far fa-envelope-open mr-2"></i><%= review.message %></p>
+      <%= link_to car_review_path(renter.car, review), method: :delete, data: { confirm: "Are you sure?" }, class: 'text-decoration-none' do  %>
+        <i class="fas fa-times-circle"></i>
+      <% end %>
     </div>
   </div>
+  <div class="reviewer d-flex align-items-end">
+    <% if renter.user.photo.attached? %>
+      <%= cl_image_tag renter.user.photo.key, crop: :fill, class: 'profile-avatar' %>
+    <% else %>
+      <%= image_tag 'test.png', class: 'profile-avatar' %>
+    <% end %>
+    <div class="reviewer-info">
+      <h5><%= renter.user.username.capitalize %></h5>
+      <h6>Jacky member since <%= renter.user.created_at.strftime("%b %d") %></h6>
+    </div>
+
+  </div>
+
 </div>

@@ -40,3 +40,27 @@
   background-size: cover;
   background-position: center;
 }
+
+.car-review .reviewcard {
+  .profile-avatar {
+    border: solid 1px #F4F4F4;
+    object-fit: cover;
+    object-position: left;
+  }
+  .reviewer {
+    h5 {
+      font-size: 15px;
+      font-weight: bold;
+    }
+    h6 {
+      font-size: 10px;
+    }
+    .reviewer-info {
+      margin-left: 10px;
+    }
+  }
+
+  .fas.fa-star {
+    color: orange;
+  }
+}
