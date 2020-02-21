@@ -27,84 +27,94 @@
                 <p class="p-10 font-italic"> <%#= @car.neon ? "Yes" : "No" %> </p>
               </div> -->
 
-<div class="container mt-5">
+<div class="container">
+  <%= link_to "Back to Home", cars_path, class: 'btn btn-light mt-2' %>
   <div class="row">
     <div class="col-7">
-      <div class="card-body-large shadow-sm p-3 mb-3 bg-white rounded">
-        <h5 class="card-title-index pl-3 pr-3"> <%= @car.brand %> - <%= @car.model %> </h5>
-        <div class="d-flex pl-3 pr-3">
-          <i class="fas fa-map-pin mr-2 mb-3"></i>
-          <p class="card-text "> <%= @car.pick_up_city %> </p>
+      <div class="card-body-large show-card p-3 mt-3 mb-3">
+        <div class=" d-flex justify-content-between ">
+          <h5 class="card-title card-title-index m-0">
+            <%= @car.brand %> - <%= @car.model %>
+          </h5>
+          <p class="card-text card-city">
+            <i class="fas fa-map-pin"></i> <%= @car.pick_up_city %>
+          </p>
+        </div>
+        <div class="car-picture">
+          <% if @car.photo.attached? %>
+            <%= cl_image_tag @car.photo.key, crop: :fill, class: 'w-100' %>
+          <% else %>
+            <img class="w-100" src="..." alt="No image yet">
+          <% end %>
+        </div>
 
-        </div>
-        <p class="card-text border-top pt-2 pl-3 pr-3"> <%= @car.description %> </p>
-        <div class="card-text border-top border-bottom pt-2 mb-2">
-          <p class="card-text pl-3 pr-3"><strong> Attributes </strong></p>
-          <div class= 'd-flex justify-content-around mt-4' >
-            <div class="text-center">
-              <i class="fas fa-paint-roller fa-lg"></i>
-              <p class="p-10 font-italic"> <%= @car.color %> </p>
-            </div>
-            <div class="text-center">
-              <i class="fas fa-euro-sign fa-lg"></i>
-              <p class="p-10 font-italic"> <%= @car.price_per_day %> </p>
-            </div>
-            <div class="text-center">
-              <i class="fas fa-lightbulb fa-lg"></i>
-              <p class="p-10 font-italic"> <%= @car.neon ? "Yes" : "No" %> </p>
-            </div>
+        <p class="card-text mt-3"> <%= @car.description %> </p>
+
+        <hr>
+
+        <div class='card-text d-flex justify-content-between mt-4 text-center' >
+          <div>
+            <i class="icon fas fa-paint-roller fa-lg"></i>
+            <p class="icon-text "> <%= @car.color %> </p>
           </div>
-          <div class= 'd-flex justify-content-around mt-4' >
-            <div class="text-center">
-              <i class="fas fa-volume-up fa-lg"></i>
-              <p class="p-10 font-italic"> <%= @car.watts %> watts </p>
-            </div>
-            <div class="text-center">
-              <i class="fas fa-truck-monster fa-lg"></i>
-              <p class="p-10 font-italic"> <%= @car.rim_size %> '' </p>
-            </div>
-            <div class="text-center">
-              <i class="fas fa-user fa-lg"></i>
-              <p class="p-10 font-italic"> <%= @car.user.username %> </p>
-            </div>
+          <div>
+            <i class="icon fas fa-euro-sign fa-lg"></i>
+            <p class="icon-text "> <%= @car.price_per_day %> </p>
+          </div>
+          <div>
+            <i class="icon fas fa-lightbulb fa-lg"></i>
+            <p class="icon-text "> <%= @car.neon ? "Yes" : "No" %> </p>
+          </div>
+          <div>
+            <i class="icon fas fa-volume-up fa-lg"></i>
+            <p class="icon-text "> <%= @car.watts %> watts </p>
+          </div>
+          <div>
+            <i class="icon fas fa-truck-monster fa-lg"></i>
+            <p class="icon-text "> <%= @car.rim_size %> '' </p>
+          </div>
+          <div>
+            <i class="icon fas fa-user fa-lg"></i>
+            <p class="icon-text "> <%= @car.user.username %> </p>
           </div>
         </div>
-        <p class="card-text pl-3 pr-3">
-          <small class="text-muted">Last updated 2 hours ago</small>
-        </p>
         <div class="btns mt-3">
           <% if policy(@car).edit? %>
-            <%= link_to 'Edit here',edit_car_path(@car), class: 'btn btn-primary'%>
+            <%= link_to 'Edit here',edit_car_path(@car), class: 'btn btn-jacky'%>
           <% end %>
           <% if policy(@car).destroy? %>
-            <%= link_to 'Delete here',car_path(@car), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary' %>
+            <%= link_to 'Delete here',car_path(@car), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-jacky' %>
           <% end %>
         </div>
       </div>
     </div>
+
     <div class="col-5">
-      <div class="card-body-large shadow-sm p-3 mb-5 bg-white rounded">
-        <h5 class="card-title-index pl-3 pr-3"> <%= "Rent the #{@car.brand} - #{@car.model}" %> </h5>
-        <%= simple_form_for [@car, @rental] do |f| %>
-          <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
-          <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
-          <%= f.button :submit, "Rent this beauty now", class: "btn btn-primary w-100" %>
-        <% end %>
+      <div class="card-body-large p-3 mb-5 bg-transparent rounded">
+        <div class="new-rent-form">
+          <div class="container justify-content-center">
+            <h5 class="card-title-index pl-3 pr-3"> <%= "Rent the #{@car.brand} - #{@car.model}" %> </h5>
+            <%= simple_form_for [@car, @rental] do |f| %>
+              <%= f.input :start_date, as: :string, required: false, input_html: {class: "new-rent-input datepicker"} %>
+              <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker new-rent-input "} %>
+              <%= f.button :submit, "Rent this beauty now", class: "btn btn-jacky w-75" %>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  <div class="card-body-large shadow-sm p-3 mb-3 bg-white rounded">
-    <h1>Comments</h1>
-    <% rentals = @car.rentals %>
-    <% rentals.each do |rental| %>
-      <% reviews = rental.reviews %>
-      <% reviews.each do |review| %>
+
+  <% unless @car_reviews.empty? %>
+    <div class="card-body-large review-card shadow-sm p-3 mb-3">
+      <h1>Comments</h1>
+      <% @car_reviews.each do |review| %>
         <div class="card mb-2">
-          <div class="card-header">
+          <div class="card-header comment-card">
             <% star = '<i class="fas fa-star text-warning"></i>' %>
             <%= (star * review.rating).html_safe %>
           </div>
-          <div class="card-body">
+          <div class="card-body comment-card">
             <h5 class="card-title"> <%= "#{review.title}" %> </h5>
             <p class="card-text"> <%= "#{review.message}" %> </p>
             <p class="card-text">
@@ -113,6 +123,6 @@
           </div>
         </div>
       <% end %>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>
