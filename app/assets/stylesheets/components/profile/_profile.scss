@@ -37,6 +37,10 @@
 .profile-car-card {
   background-size: cover;
   background-position: center;
+  height: 30vh;
+  .card-img-top {
+    height: 80%;
+  }
 }
 
 .car-review .reviewcard {
