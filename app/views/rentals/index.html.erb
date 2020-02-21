@@ -1,4 +1,4 @@
-<div class="activity container my-5">
+<div class="activity container">
 
   <ul class="nav nav-tabs activity-nav">
     <li class="nav-item">
@@ -15,22 +15,24 @@
       <h3>Trips</h3>
       <!-- trips coming -->
       <h5>What's coming up</h5>
+      <%= link_to 'Explore Jacky', cars_path, class: 'btn btn-secondary' %>
       <% unless current_user.any_new_trip? %>
         <p>You don’t have anything coming up—--start exploring ideas for your next trip.</p>
         <%= image_tag 'activities_none.jpg' %>
         <!-- why not a gif of small car -->
       <% end %>
-      <%= link_to 'Explore Jacky', cars_path, class: 'btn btn-secondary' %>
       <div class="tripcard-container d-flex justify-content-between">
         <div class="row">
           <% current_user.rentals.each do |rental| %>
-            <div class="col-sm-6">
-              <% if rental.end_date > Time.zone.now %>
-                <!-- card design -->
-                <%= render 'rentals/shared/tripcard', rental: rental %>
-                <!-- card design -->
-              <% end %>
-            </div>
+
+            <% if rental.end_date > Time.zone.now %>
+              <div class="col-sm-6">
+              <!-- card design -->
+              <%= render 'rentals/shared/tripcard', rental: rental %>
+              <!-- card design -->
+              </div>
+            <% end %>
+
           <% end %>
         </div>
       </div>
@@ -44,13 +46,13 @@
         <div class="tripcard-container d-flex justify-content-between">
           <div class="row">
             <% current_user.rentals.each do |rental| %>
-              <div class="col-sm-6">
-                <% if rental.end_date <= Time.zone.now %>
-                  <!-- card design -->
-                  <%= render 'rentals/shared/tripcard', rental: rental %>
-                  <!-- card design -->
-                <% end %>
-              </div>
+              <% if rental.end_date <= Time.zone.now %>
+                <div class="col-sm-6">
+                <!-- card design -->
+                <%= render 'rentals/shared/tripcard', rental: rental %>
+                <!-- card design -->
+                </div>
+              <% end %>
             <% end %>
           </div>
         </div>
@@ -69,17 +71,18 @@
       <div class="row">
         <% current_user.renters.each do |renter| %>
           <!-- renter here is the rental instance of the renter -->
-          <div class="col-sm-4">
-            <% if renter.end_date > Time.zone.now %>
+          <% if renter.end_date > Time.zone.now %>
+            <div class="col-sm-12">
               <!-- card design -->
               <%= render 'rentals/shared/rentercard', renter: renter %>
               <!-- card design -->
-            <% end %>
-          </div>
+            </div>
+
+          <% end %>
         <% end %>
       </div>
       <!-- renters history -->
-      <h5>Who you've met</h5>
+      <h5 class='mt-5'>Who you've met</h5>
       <% if current_user.renters.blank? %>
         <p>Oops! You don’t have any renter yet—--make your car more fancy.</p>
         <%= image_tag 'activities_none.jpg' %>
@@ -87,13 +90,13 @@
         <div class="row">
           <% current_user.renters.each do |renter| %>
             <!-- renter here is the rental instance of the renter -->
-            <div class="col-sm-4">
-              <% if renter.end_date <= Time.zone.now %>
-                <!-- card design -->
-                <%= render 'rentals/shared/rentercard', renter: renter %>
-                <!-- card design -->
-              <% end %>
-            </div>
+            <% if renter.end_date <= Time.zone.now %>
+              <div class="col-sm-12">
+              <!-- card design -->
+              <%= render 'rentals/shared/rentercard', renter: renter %>
+              <!-- card design -->
+              </div>
+            <% end %>
           <% end %>
         </div>
       <% end %>

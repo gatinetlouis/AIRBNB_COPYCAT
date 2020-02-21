@@ -9,7 +9,6 @@
 
 .activity-nav .nav-link.active {
   background-color: white;
-
 }
 
 .activity-body h3 {
@@ -35,19 +34,36 @@
   .card-img {
     height: 100%;
   }
+
+.images {
+  position: relative;
+}
+
+  .images .owner-avatar {
+    position: absolute;
+    left: 160%;
+
+
+
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .images .owner-avatar-default {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    object-position: left;
+  }
+
   .card-body {
     padding: 0 0 0 20px;
-    .fa-trash {
-      color: rgba(200, 200, 200, 0.8);
-    }
-    .fa-trash:hover {
-      color: rgba(150, 150, 150, 0.8);
-    }
   }
-  h6, p {
-    font-size: 15px;
-    color: rgba(100, 100, 100, 1);
-  }
+
   .link-icons .btn {
     // background-color: #b24951;
     color: white;
@@ -66,3 +82,36 @@
     // line-height: 0.8;
   }
 }
+
+.fa-times-circle {
+  color: rgba(200, 200, 200, 0.8);
+}
+.fa-times-circle:hover {
+  color: rgba(150, 150, 150, 0.8);
+}
+
+h6, p {
+  font-size: 15px;
+  color: rgba(100, 100, 100, 1);
+}
+
+.rentercard {
+  border-left: none;
+  border-right: none;
+  padding: 10px 40px;
+}
+
+.rentercard {
+  .card-img {
+    border-radius: 50%;
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+    object-position: left;
+  }
+}
+
+
+
+
+

@@ -36,4 +36,17 @@ class User < ApplicationRecord
     end
     answer.include?(false)
   end
+
+  def any_renter_review?
+    answer = []
+    if self.renters.nil?
+      false
+    else
+      self.renters.each do |renter|
+        renter_reviews = renter.reviews.select { |review| review.review_type == "feedback_from_renter" }
+        answer << renter_reviews.blank?
+      end
+    end
+    answer.include?(false)
+  end
 end
