@@ -18,7 +18,7 @@ class RentalsController < ApplicationController
     @rental.user = current_user
     authorize @rental
     if @rental.save
-      redirect_to cars_path
+      redirect_to rentals_path
     else
       render :new
     end

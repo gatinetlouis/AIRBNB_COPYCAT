@@ -11,7 +11,7 @@ const fetchMap = (event) => {
     const map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/mandou13/ck627h7ei0t2j1iqripzazoln',
-      center: [2.3522,48.8566],
+      center: [5.3522,41.8566],
       zoom: 5
     });
 
