@@ -1,20 +1,81 @@
 <div class="profile-banner">
-  <div class="profile-card bg-white shadow-sm">
+  <div class="profile-card bg-white shadow-sm d-flex flex-column justify-content-between">
     <div class="user-info d-flex align-items-center justify-content-between">
-      <h3><%= current_user.username %></h3>
-      <div class="profile-dropdown">
-        <a class="btn btn-outline-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Profile
-        </a>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <% if policy(User.find(params[:id])).show? %>
-            <%= link_to "Change password", edit_user_registration_path, class: 'dropdown-item' %>
-            <%= link_to "Update profil", edit_user_registration_path, class: 'dropdown-item' %>
-            <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
-          <% end %>
+       <% if current_user.photo.attached? %>
+        <%= cl_image_tag current_user.photo.key, crop: :fill, class: 'profile-avatar' %>
+      <% else %>
+        <%= image_tag 'test.png', class: 'card-img' %>
+      <% end %>
+      <h3 class="align-self-end">Hi, I'm <%= current_user.username %></h3>
+    </div>
+    <div class="footer border-top pt-2 mt-2"><h6>Jacky member since <%= current_user.created_at.strftime("%b %d") %></h6></div>
+  </div>
+</div>
+
+<div class="car-review container">
+  <div class="row d-flex justify-content-between">
+    <div class="col-3">
+      <ul class="profile-nav d-flex flex-column list-style-none">
+        <li>
+          <button class="nav-link active" id='btn-cars'>My Cars</button>
+        </li>
+        <li>
+          <button class="nav-link" id='btn-reviews'>My Reviews</button>
+        </li>
+      </ul>
+    </div>
+
+
+      <div class="col-9">
+        <div class="car-review-body bg-white p-5">
+
+          <div class="cars">
+            <h3 class='mb-5'>Cars</h3>
+            <% if current_user.cars.blank? %>
+              <p>Your cars are getting rust!</p>
+              <%= image_tag 'activities_none.jpg' %>
+              <!-- why not a gif of small car -->
+            <% else %>
+              <div class="car-review-grid container">
+                <div class="row d-flex justify-content-between">
+                  <% current_user.cars.each do |car| %>
+                    <div class="col-6">
+                    <!-- card design -->
+                    <%= render 'profiles/shared/car_card', car: car %>
+                    <!-- card design -->
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          <!-- renters -->
+          <div class="reviews d-none">
+            <h3 class='mb-5'>Reviews</h3>
+            <!-- renters coming -->
+            <% unless current_user.any_renter_review? %>
+              <p>You don’t have any review from renters—--make your car more fancy.</p>
+              <%#= image_tag 'activities_none.jpg' %>
+            <% end %>
+            <div class="row">
+              <% current_user.renters.each do |renter| %>
+                <!-- renter here is the rental instance of the renter -->
+                <% renter.reviews.each do |review| %>
+                  <% if review.review_type == "feedback_from_renter" %>
+                    <div class="col-sm-12">
+                      <!-- card design -->
+                      <%= render 'profiles/shared/review_card', renter: renter, review: review %>
+                      <!-- card design -->
+                    </div>
+                  <% end %>
+
+                <% end %>
+
+              <% end %>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="footer border-top pt-2"><h6>Jacky member since <%= current_user.created_at.strftime("%b %d") %></h6></div>
+
   </div>
+
 </div>

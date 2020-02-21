@@ -1,0 +1,18 @@
+<div class="card mt-4 reviewcard">
+    <%# if renter.user.photo.attached? %>
+      <%#= cl_image_tag renter.user.photo.key, crop: :fill, class: 'card-img' %>
+    <%# else %>
+      <%#= image_tag 'test.png', class: 'card-img' %>
+    <%# end %>
+    <%= renter.user.username.capitalize %>
+    <h6>Jacky member since <%= renter.user.created_at.strftime("%b %d") %></h6>
+    <div class="d-flex justify-content-between">
+      <div class="card-body p-0">
+
+        <h5 class="card-title font-weight-bold"><%= review.title.capitalize %></h5>
+        <p></i><%= review.rating %> * <i class="fas fa-star"></i> <i class="far fa-star"></i> </p>
+        <p><i class="far fa-envelope-open mr-2"></i><%= review.message %></p>
+      </div>
+    </div>
+  </div>
+</div>

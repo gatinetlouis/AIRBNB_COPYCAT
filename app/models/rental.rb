@@ -21,7 +21,7 @@ class Rental < ApplicationRecord
 
   def price
     duration
-    duration * self.car.price_per_day
+    (duration * self.car.price_per_day).round
   end
 
   def finished?

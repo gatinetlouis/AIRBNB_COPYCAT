@@ -6,6 +6,8 @@ const activitiesCollapse = () => {
 
   if (btnRenters) {
     btnRenters.addEventListener('click', (event) => {
+      btnTrips.classList.remove('active');
+      btnRenters.classList.add('active');
       trips.classList.add('d-none');
       renters.classList.remove('d-none');
     });
@@ -13,6 +15,8 @@ const activitiesCollapse = () => {
 
   if (btnTrips) {
     btnTrips.addEventListener('click', (event) => {
+      btnTrips.classList.add('active');
+      btnRenters.classList.remove('active');
       renters.classList.add('d-none');
       trips.classList.remove('d-none');
     });
