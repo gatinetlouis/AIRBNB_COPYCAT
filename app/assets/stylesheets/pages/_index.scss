@@ -65,6 +65,8 @@ h1 {
   padding-top: 0px;
 }
 
+
+
 .photo {
   height: 100%;
   width: 400px;
@@ -125,7 +127,7 @@ h1 {
 
 
 .title-div {
-  height: 5%;
+  padding-bottom: 42px;
 }
 
 .all-cars {
@@ -183,6 +185,7 @@ h1 {
 .car-brand-title {
   font-family: 'Permanent Marker', cursive;
   padding-top: 6px;
+  color: black;
 }
 
 .pick-up-city-title {
@@ -202,12 +205,16 @@ h1 {
 }
 
 .more-details {
+  display: none;
   position: absolute;
   font-family: 'Permanent Marker', cursive;
   right: 14px;
   top: 14px;
 }
 
+.new-car-card:hover {
+  box-shadow: 0 0 10px rgba(0,0,0,0.7);
+}
 
 .content-card-index {
   border-top: solid #E7055F 6px;

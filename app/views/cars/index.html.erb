@@ -15,28 +15,31 @@
 
   <div class='index'>
     <div class="container">
-     <div class='title-div pt-4 pb-2'>
-        <h2 class='title-all-cars'>All cars</h2>
+     <div class='title-div pt-4'>
+        <h2 class='title-all-cars'></h2>
       </div>
 
       <div>
         <div class='cards'>
           <% @cars.each do |car| %>
             <div class='card-index new-car-card'>
-              <% if car.photo.attached? %>
-                <%= cl_image_tag car.photo.key, crop: :fill, class: 'image-index' %>
-              <% else %>
-                <img class="image-index" src="..." alt="No image yet">
-              <% end %>
-              <%= link_to 'More info',car_path(car), class: 'btn btn-jacky more-details ' %>
-              <div class='text-center content-card-index w-100'>
-                <h5 class="car-brand-title mb-2"><%= car.brand %> - <%= car.model %> </h5>
-                <div class='d-flex justify-content-between mr-5 ml-5'>
-                  <p class='pick-up-city-title'><%= car.pick_up_city %> </p>
-                  <p class='pick-up-address'><%= car.pick_up_address %> </p>
-                  <p class='price-text'> <strong> <%= car.price_per_day %> €/day </strong></p>
+              <%= link_to (car_path(car))  do %>
+                <% if car.photo.attached? %>
+                  <%= cl_image_tag car.photo.key, crop: :fill, class: 'image-index' %>
+                <% else %>
+                  <img class="image-index" src="..." alt="No image yet">
+                <% end %>
+
+                <p class='btn btn-jacky more-details'>More info </p>
+                <div class='text-center content-card-index w-100'>
+                  <h5 class="car-brand-title mb-2"><%= car.brand %> - <%= car.model %> </h5>
+                  <div class='d-flex justify-content-between mr-5 ml-5'>
+                    <p class='pick-up-city-title'><%= car.pick_up_city %> </p>
+                    <p class='pick-up-address'><%= car.pick_up_address %> </p>
+                    <p class='price-text'> <strong> <%= car.price_per_day %> €/day </strong></p>
+                  </div>
                 </div>
-              </div>
+              <% end %>
             </div>
           <% end %>
         </div>

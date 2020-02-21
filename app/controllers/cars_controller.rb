@@ -4,6 +4,7 @@ class CarsController < ApplicationController
 
   def index
      @cars = policy_scope(Car)
+     @search = params[:search]
     if params[:search].nil?
        @cars
     else
