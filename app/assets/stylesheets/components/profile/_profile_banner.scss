@@ -1,0 +1,37 @@
+.profile-banner {
+  height: 35vh;
+  background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url('https://www.moneycrashers.com/wp-content/uploads/2019/04/plan-road-trip-tips-ideas-1068x713.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  .profile-card {
+    width: 50vw;
+    height: 18vh;
+    border-radius: 5px;
+    position: absolute;
+    top: 27vh;
+    left: 43vh;
+    padding: 15px 50px 10px 50px;
+    .user-info {
+      height: 10vh;
+      .card-img {
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        object-position: left;
+      }
+    }
+    .footer h6 {
+      font-size: 12px;
+      color: rgba(100, 100, 100, 1);
+    }
+  }
+}
+
+.profile-avatar {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+}

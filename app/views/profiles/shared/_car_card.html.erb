@@ -1,0 +1,12 @@
+<div class="card profile-car-card shadow">
+  <%= cl_image_tag car.photo.key, crop: :fill, class: 'card-img-top' %>
+  <div class="card-footer d-flex justify-content-end align-items-center">
+    <a href="" class="mr-3"><i class="far fa-comment-alt"></i></a>
+    <%= link_to edit_car_path(car), class: 'text-decoration-none' do  %>
+      <i class="far fa-edit mr-3"></i>
+    <% end %>
+    <%= link_to car_path(car), method: :delete, data: { confirm: "Are you sure?" }, class: 'text-decoration-none' do  %>
+      <i class="fas fa-times-circle"></i>
+    <% end %>
+  </div>
+</div>

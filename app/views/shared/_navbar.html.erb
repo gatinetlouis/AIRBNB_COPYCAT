@@ -23,7 +23,7 @@
             <p class='mt-0'> My activity </p>
           <% end %>
         <% elsif policy(current_user).show? %>
-          <%= link_to profile_path(current_user) do %>
+          <%= link_to rentals_path do %>
           <i class="fas fa-angle-down"></i>
           <p class='mt-0'> My activity </p>
           <% end %>

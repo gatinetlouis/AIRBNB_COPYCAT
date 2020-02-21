@@ -1,13 +1,23 @@
-<div class="card rental-card mt-5" style="height: 60vh;">
-  <img src="#" alt="" style="border-radius: 50%; width: 50px; height: 50px; border: 1px solid grey;">
-  <%#= cl_image_tag rental.user.photo.key, height: 300, width: 400, crop: :fill %>
-  <!-- Louis -->
-  <h5><%= renter.user.username %></h5>
-  <p><%= renter.user.email %></p>
-  <p><%= renter.user.phone_number %></p>
-  <p><%= renter.start_date %> ~ <%= renter.end_date %> | <%= renter.days %></p>
-  <p>€ <%= renter.price %></p>
-  <p><%= renter.car.pick_up_address %></p>
-  <!-- <p><%#= rental.message %></p> -->
-  <!-- ajouter dans le seed -->
+<div class="card mt-4 rentercard">
+  <!-- <img src="#" alt="" style="border-radius: 50%; width: 50px; height: 50px; border: 1px solid grey;"> -->
+  <div class="row no-gutters">
+    <div class="col-4">
+       <% if renter.user.photo.attached? %>
+        <%= cl_image_tag renter.user.photo.key, crop: :fill, class: 'card-img' %>
+      <% else %>
+        <%= image_tag 'test.png', class: 'card-img' %>
+      <% end %>
+    </div>
+    <div class="col-8 d-flex justify-content-between">
+      <div class="card-body p-0">
+        <h5 class="card-title font-weight-bold"><%= renter.user.username.capitalize %><i class="fas fa-heart mx-3"></i>your <%= renter.car.model %></h5>
+        <p><i class="far fa-calendar-alt mr-2"></i><%= renter.start_date.strftime("%b %d") %> - <%= renter.end_date.strftime("%b %d") %><i class="fas fa-euro-sign ml-5 mr-2"></i><%= renter.price %> (<%= renter.days %>)</p>
+        <p><i class="far fa-envelope-open mr-2"></i><%= renter.user.email %><i class="fas fa-phone ml-5 mr-2"></i><%= renter.user.phone_number %></p>
+        <p><i class="fas fa-map-marker-alt mr-2"></i><%= renter.car.pick_up_address %></p>
+      </div>
+      <%= link_to rental_path(renter), method: :delete, data: { confirm: "Are you sure?" }, class: 'text-decoration-none' do %>
+        <i class="fas fa-times-circle"></i>
+      <% end %>
+    </div>
+  </div>
 </div>

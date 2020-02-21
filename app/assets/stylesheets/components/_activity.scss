@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+.activity-nav .nav-link {
+  background-color: #F7F5F6;
+  width: 150px;
+  border-bottom: 1px solid #dee2e6;
+
+}
+
+.activity-nav .nav-link.active {
+  background-color: white;
+}
+
+.activity-body h3 {
+  font-weight: bold;
+  margin-bottom: 15px;
+  // font-family: 'Open Sans', sans-serif;
+}
+
+.activity-body h5 {
+  margin-bottom: 20px;
+  // font-family: 'Open Sans', sans-serif;
+}
+
+.activity-body {
+  border-left: 1px solid #dee2e6;
+  border-right: 1px solid #dee2e6;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.tripcard {
+  // background-image: url('background-jackynb.jpg');
+  // background-size: cover;
+  .card-img {
+    height: 100%;
+  }
+
+.images {
+  position: relative;
+}
+
+  .images .owner-avatar {
+    position: absolute;
+    left: 160%;
+
+
+
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .images .owner-avatar-default {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    object-position: left;
+  }
+
+  .card-body {
+    padding: 0 0 0 20px;
+  }
+
+  .link-icons .btn {
+    // background-color: #b24951;
+    color: white;
+  }
+
+  .btn-car {
+    flex-grow: 1;
+  }
+
+  .btn-review {
+    padding: 0.75rem 0.85rem;
+    font-size: 1rem;
+  }
+
+  .other-lines {
+    // line-height: 0.8;
+  }
+}
+
+.fa-times-circle {
+  color: rgba(200, 200, 200, 0.8);
+}
+.fa-times-circle:hover {
+  color: rgba(150, 150, 150, 0.8);
+}
+
+h6, p {
+  font-size: 15px;
+  color: rgba(100, 100, 100, 1);
+}
+
+.rentercard {
+  border-left: none;
+  border-right: none;
+  padding: 10px 40px;
+}
+
+.rentercard {
+  .card-img {
+    border-radius: 50%;
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+    object-position: left;
+  }
+}
+
+
+
+
+

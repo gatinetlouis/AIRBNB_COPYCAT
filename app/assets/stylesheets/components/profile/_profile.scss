@@ -1,0 +1,42 @@
+@import 'profile_banner';
+
+.car-review {
+  margin: 150px auto;
+  .col-9 {
+    flex-grow: 1;
+    width: 100%;
+  }
+}
+
+.car-review-grid {
+  grid-gap: 50px 50px;
+}
+
+.profile-nav {
+  list-style: none;
+  button {
+    border: none;
+    background-color: #F4F4F4;
+ }
+  .nav-link {
+    background-color: #F7F5F6;
+    width: 150px;
+    &:hover {
+      border-bottom: 2px solid #86212B;
+    }
+ }
+  .nav-link:hover {
+    background-color: #F7F5F6;
+    width: 150px;
+ }
+
+  .nav-link.active {
+    background-color: #86212B;
+    color: white;
+ }
+}
+
+.profile-car-card {
+  background-size: cover;
+  background-position: center;
+}
