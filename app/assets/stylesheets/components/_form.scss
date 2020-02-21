@@ -1,6 +1,6 @@
 
 .new-car-form {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.5);
   color: #F7F7F7;
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
@@ -8,10 +8,13 @@
   display: flex;
   text-align: center;
   justify-content: center;
-  margin: 10px auto 0 auto;
+  margin: 0 auto 0 auto;
   border-radius: 8px;
   width: 33%;
-  padding: 10px;
+  padding: 30px;
+}
+.new-car-form p {
+  color: white;
 }
 
 .new-car-input {
@@ -20,11 +23,8 @@
 }
 
 
-// .form_items{
-//   background-color: black;
-// }
 .new-rent-form {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.5);
   color: #F7F7F7;
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
@@ -32,10 +32,10 @@
   display: flex;
   text-align: center;
   justify-content: center;
-  margin: 10px auto 0 auto;
+  margin: 0 auto 0 auto;
   border-radius: 8px;
   width: 100%;
-  padding: 10px;
+  padding: 30px;
 }
 .new-rent-input {
   background-color: transparent;
