@@ -1,21 +1,23 @@
 <div class="profile-banner">
-  <div class="profile-card bg-white shadow-sm d-flex flex-column justify-content-between">
-    <div class="user-info d-flex align-items-center justify-content-between">
-       <% if current_user.photo.attached? %>
-        <%= cl_image_tag current_user.photo.key, crop: :fill, class: 'profile-avatar' %>
-      <% else %>
-        <%= image_tag 'test.png', class: 'card-img' %>
-      <% end %>
-      <h3 class="align-self-end">Hi, I'm <%= current_user.username %></h3>
-    </div>
-    <div class="footer border-top pt-2 mt-2"><h6>Jacky member since <%= current_user.created_at.strftime("%b %d") %></h6></div>
+  <div class="profile-card d-flex flex-column justify-content-between">
   </div>
+
 </div>
 
 <div class="car-review container">
   <div class="row d-flex justify-content-between">
     <div class="col-3">
-      <ul class="profile-nav d-flex flex-column list-style-none">
+      <div class="user-info d-flex align-items-center justify-content-start">
+         <% if current_user.photo.attached? %>
+          <%= cl_image_tag current_user.photo.key, crop: :fill, class: 'profile-avatar' %>
+        <% else %>
+          <%= image_tag 'test.png', class: 'card-img' %>
+        <% end %>
+        <h3 class="align-self-end ml-4"><%= current_user.username %></h3>
+      </div>
+      <div class="footer border-top pt-2 mt-2"><h6>Jacky member since <%= current_user.created_at.strftime("%b %d") %></h6></div>
+
+      <ul class="profile-nav d-flex flex-column list-style-none mt-5">
         <li>
           <button class="nav-link active" id='btn-cars'>My Cars</button>
         </li>
