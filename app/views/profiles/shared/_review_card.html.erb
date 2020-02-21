@@ -1,18 +1,34 @@
-<div class="card mt-4 reviewcard">
-    <%# if renter.user.photo.attached? %>
-      <%#= cl_image_tag renter.user.photo.key, crop: :fill, class: 'card-img' %>
-    <%# else %>
-      <%#= image_tag 'test.png', class: 'card-img' %>
-    <%# end %>
-    <%= renter.user.username.capitalize %>
-    <h6>Jacky member since <%= renter.user.created_at.strftime("%b %d") %></h6>
-    <div class="d-flex justify-content-between">
-      <div class="card-body p-0">
-
-        <h5 class="card-title font-weight-bold"><%= review.title.capitalize %></h5>
-        <p></i><%= review.rating %> * <i class="fas fa-star"></i> <i class="far fa-star"></i> </p>
-        <p><i class="far fa-envelope-open mr-2"></i><%= review.message %></p>
+<div class="card mt-4 reviewcard p-4">
+  <div class="d-flex justify-content-between">
+    <div class="card-body p-0">
+      <div class="first-line d-flex justify-content-between">
+        <div class="stars d-flex justify-content-between mb-3" style="width: 20%;">
+          <% review.rating.times do %>
+            <i class="fas fa-star"></i>
+          <% end %>
+          <% (5 - review.rating).times do %>
+            <i class="far fa-star"></i>
+          <% end %>
+        </div>
+        <%= link_to rentals_path, class: 'text-decoration-none' do  %>
+          <i class="fas fa-info-circle"></i>
+        <% end %>
       </div>
+
+      <h5 class="card-title font-weight-bold mb-1"><%= review.title.capitalize %></h5>
+      <p class="mb-0"><i class="far fa-envelope-open mr-2"></i><%= review.message %></p>
     </div>
   </div>
+  <div class="reviewer d-flex align-items-end justify-content-end">
+    <div class="reviewer-info d-flex flex-column align-items-end mr-3">
+      <h5><%= renter.user.username.capitalize %></h5>
+      <h6>Jacky member since <%= renter.user.created_at.strftime("%b %d") %></h6>
+    </div>
+    <% if renter.user.photo.attached? %>
+      <%= cl_image_tag renter.user.photo.key, crop: :fill, class: 'profile-avatar' %>
+    <% else %>
+      <%= image_tag 'test.png', class: 'profile-avatar' %>
+    <% end %>
+  </div>
+
 </div>

@@ -30,7 +30,6 @@
         <div class="car-review-body bg-white p-5">
 
           <div class="cars">
-            <h3 class='mb-5'>Cars</h3>
             <% if current_user.cars.blank? %>
               <p>Your cars are getting rust!</p>
               <%= image_tag 'activities_none.jpg' %>
@@ -48,9 +47,9 @@
                 </div>
               </div>
             <% end %>
+          </div>
           <!-- renters -->
           <div class="reviews d-none">
-            <h3 class='mb-5'>Reviews</h3>
             <!-- renters coming -->
             <% unless current_user.any_renter_review? %>
               <p>You don’t have any review from renters—--make your car more fancy.</p>
