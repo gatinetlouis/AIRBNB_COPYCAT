@@ -91,9 +91,17 @@
 
 .fa-times-circle {
   color: rgba(200, 200, 200, 0.8);
+  margin-top: 10px;
+  margin-right: 10px;
+  font-size: 20px;
+  color: #E7055F;
+// background-color: #8B162E;
 }
 .fa-times-circle:hover {
   color: rgba(150, 150, 150, 0.8);
+  margin-right: 10px;
+  font-size: 20px;
+
 }
 
 h6, p {
@@ -104,16 +112,18 @@ h6, p {
 .rentercard {
   border-left: none;
   border-right: none;
-  padding: 10px 40px;
+  // padding: 10px 40px;
 }
 
 .rentercard {
   .card-img {
     border-radius: 50%;
-    width: 130px;
-    height: 130px;
+    width: 140px;
+    height: 140px;
     object-fit: cover;
     object-position: left;
+    margin-left: 60px;
+    margin-top: 30px;
   }
 }
 
