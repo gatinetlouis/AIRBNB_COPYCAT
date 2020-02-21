@@ -138,17 +138,6 @@ h1 {
   width: 20px;
 }
 
-
-input[type="date"]:before {
-  content: attr(placeholder) !important;
-  color: #aaa;
-  margin-right: 0.5em;
-}
-input[type="date"]:focus:before,
-input[type="date"]:valid:before {
-  content: "";
-}
-
 .card-index {
   border-radius: 1px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
