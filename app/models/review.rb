@@ -25,4 +25,7 @@ class Review < ApplicationRecord
       self.rental.user
     end
   end
+
+  def renter_review
+  end
 end
