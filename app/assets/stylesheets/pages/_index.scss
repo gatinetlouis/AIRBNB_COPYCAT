@@ -46,7 +46,7 @@
     word-wrap: break-word;
     background-color: #fff;
     background-clip: border-box;
-    border: 1px solid rgba(0, 0, 0, 0.125);
+    // border: 1px solid rgba(0, 0, 0, 0.125);
     border-radius: 2px;
 
 }
@@ -71,10 +71,7 @@ h1 {
   object-fit: cover;
 }
 
-.more-details {
 
-  font-family: 'Permanent Marker', cursive;
-}
 
 
 .price {
@@ -141,13 +138,81 @@ h1 {
   width: 20px;
 }
 
+.card-index {
+  border-radius: 1px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 22px;
+  color: black;
+  font-weight: bolder;
+  // text-shadow: 0 0 10px rgba(0,0,0,0.7);
 
-input[type="date"]:before {
-  content: attr(placeholder) !important;
-  color: #aaa;
-  margin-right: 0.5em;
 }
-input[type="date"]:focus:before,
-input[type="date"]:valid:before {
-  content: "";
+
+.index {
+  width: 100%;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 16px;
+  padding: 16px;
+  flex-grow: 1;
+  flex-direction: row;
+}
+
+.image-index {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.price-text {
+  font-size: 17px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: lighter;
+  color: black;
+}
+
+
+.car-brand-title {
+  font-family: 'Permanent Marker', cursive;
+  padding-top: 6px;
+}
+
+.pick-up-city-title {
+  font-size: 17px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: lighter;
+  color: black;
+}
+
+.new-car-card {
+  position: relative;
+  flex-direction: column;
+  word-wrap: break-word;
+  background-clip: border-box;
+  background-color: rgba(255,255,255, 0.5);
+  border-radius: 12px;
+}
+
+.more-details {
+  position: absolute;
+  font-family: 'Permanent Marker', cursive;
+  right: 14px;
+  top: 14px;
+}
+
+
+.content-card-index {
+  border-top: solid #E7055F 6px;
+}
+
+.pick-up-address {
+  display: none;
 }

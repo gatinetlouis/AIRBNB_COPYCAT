@@ -15,45 +15,31 @@
 
   <div class='index'>
     <div class="container">
-      <div class="row all-cars mt-4">
-        <div class='title-div'>
-          <h2 class='title-all-cars'>All cars</h2>
-        </div>
+     <div class='title-div pt-4 pb-2'>
+        <h2 class='title-all-cars'>All cars</h2>
+      </div>
+
+      <div>
+        <div class='cards'>
           <% @cars.each do |car| %>
-            <div class=" car-card w-100 m-4 d-flex flex-row">
-              <div class= "photo w-60">
-                <% if car.photo.attached? %>
-                  <%= cl_image_tag car.photo.key, height: 300, width: 400, crop: :fill, class: 'card-img-top photo' %>
-                <% else %>
-                  <img class="card-img-top" src="..." alt="No image yet">
-                <% end %>
-              </div>
-              <div class="card-body card-body-index d-flex justify-content-between">
-                <div class="padding-card d-flex justify-content-between pr-10 pl-10">
-                  <h5 class="card-title card-title-index"><%= car.brand %> - <%= car.model %> </h5>
-                  <p class=''><i class="fas fa-map-pin"> </i><%= car.pick_up_city %>  </p>
-                </div>
-
-                <p class="card-text  padding-card"> <%= car.description %> </p>
-                <ul class="list-group list-group-flush">
-                  <li class="pick_up_address" ><i class="fas fa-map-pin"> </i><%= car.pick_up_address %></li>
-                </ul>
-                  <div class='d-flex padding-card flex-row-reverse pr-20 pb-2'>
-                    <div class='price btn-ghost align-content-right'><i class="fas fa-euro-sign"></i> <strong> <%= car.price_per_day %> /day </strong></div>
-                  </div>
-                  <!-- <ul class="list-group list-group-flush">
-                    <li class="list-group-item" > <i class="fas fa-map-pin"></i> <%= car.pick_up_city %> </li>
-                    <li class="list-group-item">  <i class="fas fa-euro-sign"></i> <%= car.price_per_day %> /day </li> -->
-                    <div class='d-flex'>
-                      <div class='text-center w-100 align-item-end button-more-info '>
-                        <%= link_to 'More info',car_path(car), class: 'btn btn-jacky more-details w-100' %>
-                      </div>
-                    </div>
-                  <!-- </ul> -->
+            <div class='card-index new-car-card'>
+              <% if car.photo.attached? %>
+                <%= cl_image_tag car.photo.key, crop: :fill, class: 'image-index' %>
+              <% else %>
+                <img class="image-index" src="..." alt="No image yet">
+              <% end %>
+              <%= link_to 'More info',car_path(car), class: 'btn btn-jacky more-details ' %>
+              <div class='text-center content-card-index w-100'>
+                <h5 class="car-brand-title mb-2"><%= car.brand %> - <%= car.model %> </h5>
+                <div class='d-flex justify-content-between mr-5 ml-5'>
+                  <p class='pick-up-city-title'><%= car.pick_up_city %> </p>
+                  <p class='pick-up-address'><%= car.pick_up_address %> </p>
+                  <p class='price-text'> <strong> <%= car.price_per_day %> €/day </strong></p>
                 </div>
               </div>
-
+            </div>
           <% end %>
+        </div>
       </div>
     </div>
   </div>

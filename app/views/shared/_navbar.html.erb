@@ -1,22 +1,22 @@
 <div class='background-navbar'>
-  <div class="navbar d-flex align-items-center">
+  <div class="navbar d-flex">
     <%= link_to root_path do  %>
       <%= image_tag "logo-jackynb.png", alt: "alttext", class: 'logo center' %>
     <% end %>
     <div class="content d-flex pr-20">
-      <div class="nav-item text-center mr-5 mt-10 mb-0">
+      <div class="nav-item text-center mr-5 margin-top-navbar mb-0">
         <%= link_to cars_path do  %>
           <i class="fas fa-search"></i>
           <p class='mt-0'> Cars </p>
         <% end %>
       </div>
-      <div class='nav-item text-center  mr-5 mt-10 mb-0'>
+      <div class='nav-item text-center  mr-5 margin-top-navbar mb-0'>
         <%= link_to new_car_path do %>
           <i class='fas fa-plus'></i>
           <p class='mt-0'> Add a car</p>
         <% end %>
       </div>
-      <div class="nav-item text-center mt-10 mr-5">
+      <div class="nav-item text-center margin-top-navbar mr-5">
         <% if current_user.nil? %>
           <%= link_to new_user_session_path do %>
             <i class="fas fa-angle-down"></i>
@@ -38,7 +38,7 @@
             </div>
           <% end %>
         <% elsif policy(current_user).show? %>
-          <button class="btn dropdown-toggle" type="button" id="menu1" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+          <button class="btn dropdown-toggle pl-0" type="button" id="menu1" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
             <% if current_user.photo.attached?%>
               <%= cl_image_tag current_user.photo.key, class: 'avatar-large'%>
             <% else %>
