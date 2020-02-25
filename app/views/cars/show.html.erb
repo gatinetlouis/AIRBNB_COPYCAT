@@ -106,7 +106,7 @@
   </div>
 
   <% unless @car_reviews.empty? %>
-    <div class="card-body-large review-card shadow-sm p-3 mb-3">
+    <div class="card-body-large card-review shadow-sm p-3 mb-3">
       <h1>Comments</h1>
       <% @car_reviews.each do |review| %>
         <div class="card mb-2">
@@ -114,12 +114,9 @@
             <% star = '<i class="fas fa-star text-warning"></i>' %>
             <%= (star * review.rating).html_safe %>
           </div>
-          <div class="card-body comment-card">
-            <h5 class="card-title"> <%= "#{review.title}" %> </h5>
-            <p class="card-text"> <%= "#{review.message}" %> </p>
-            <p class="card-text">
-              <small class="text-muted"><%= "Review given by #{review.rental.user.username}" %></small>
-            </p>
+          <div class="card-body card-review">
+            <h5 class="card-review"> <%= "#{review.title}" %> </h5>
+            <p class="card-review"> <%= "#{review.message}" %> </p>
           </div>
         </div>
       <% end %>
